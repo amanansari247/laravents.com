@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,4 +14,9 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
+   .purgeCss({
+       enabled: true,
+       extensions: ['html', 'js', 'php', 'vue'],
+       whitelistPatterns: [/language/, /hljs/],
+   })
     .version();
