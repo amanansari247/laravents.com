@@ -25,6 +25,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Conference[] $conference
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Hackathon[] $hackathons
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Meetup[] $meetups
  */
 class User extends Authenticatable
 {
@@ -51,8 +54,24 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function events()
+    public function meetups()
     {
-        return $this->hasMany(Event::class, 'user_id', 'id');
+        return $this->hasMany(Meetup::class, 'user_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function hackathons()
+    {
+        return $this->hasMany(Hackathon::class, 'user_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function conference()
+    {
+        return $this->hasMany(Conference::class, 'user_id', 'id');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventsTable extends Migration
+class CreateHackathonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('hackathons', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->boolean('is_approved')->default(false);
 
             $table->string('title');
-            $table->string('url')->nullable();
+            $table->string('website')->nullable();
+
+            $table->longText('description');
 
             $table->softDeletes();
             $table->timestamps();
@@ -33,6 +35,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('hackathons');
     }
 }

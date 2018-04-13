@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "axios": "^0.18",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.1.0",
         "cross-env": "^5.1",
         "jquery": "^3.2",
         "laravel-mix": "^2.0",
@@ -20,6 +20,13 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "laravel-mix-purgecss": "^2.0.0"
+        "algoliasearch": "^3.26.0",
+        "autocomplete.js": "^0.29.0",
+        "instantsearch.js": "^2.6.3",
+        "laravel-mix-purgecss": "^2.0.0",
+        "places.js": "^1.6.0",
+        "vue-instantsearch": "^1.5.2",
+        "vue-router": "^3.0.1",
+        "vue-truncate-filter": "^1.1.7"
     }
 }

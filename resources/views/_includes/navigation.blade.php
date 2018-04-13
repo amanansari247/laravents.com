@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ asset('img/logo_trans.png') }}" alt="Logo">
+            <span class="logo-text">{{ config('app.name') }}</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+                <li>
+                    <a href="{{ url('/') }}" class="nav-link">Home</a>
+                </li>
 
+                <li>
+                    <a href="{{ url('/c') }}" class="nav-link">Conferences</a>
+                </li>
+
+                <li>
+                    <a href="{{ url('/m') }}" class="nav-link">Meetups</a>
+                </li>
+
+                <li>
+                    <a href="{{ url('/h') }}" class="nav-link">Hackathons</a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->

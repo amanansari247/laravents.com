@@ -9,13 +9,21 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+require('./vue_libraries');
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('home-search', require('./components/HomeSearch'));
+Vue.component('meetup-list', require('./components/Meetups'));
+Vue.component('speaker-list', require('./components/SpeakerList'));
+Vue.component('hackathon-list', require('./components/Hackathons'));
+Vue.component('conference-list', require('./components/Conferences'));
+
+
+Vue.config.productionTip = false;
 
 const app = new Vue({
     el: '#app'

@@ -9,3 +9,6 @@ Route::get('/auth/social/{provider}', 'Auth\SocialController@redirectToProvider'
 Route::get('/auth/social/{provider}/callback', 'Auth\SocialController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('c', 'Events\ConferenceController');
+

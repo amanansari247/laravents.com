@@ -54,3 +54,7 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+window.algoliasearch = require('algoliasearch');
+window.places = require('places.js');
+window.autocomplete = require('autocomplete.js');

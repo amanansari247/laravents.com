@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+const webpack = require('webpack');
 require('laravel-mix-purgecss');
 
 /*
@@ -14,9 +15,9 @@ require('laravel-mix-purgecss');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
-   .purgeCss({
-       enabled: true,
-       extensions: ['html', 'js', 'php', 'vue'],
-       whitelistPatterns: [/language/, /hljs/],
-   })
+   // .purgeCss({
+   //     enabled: true,
+   //     extensions: ['html', 'js', 'php', 'vue'],
+   //     whitelistPatterns: [/language/, /hljs/],
+   // })
     .version();
