@@ -21,12 +21,12 @@ Route::get('/test', function () {
     $event->notify(new \App\Notifications\Events\ConferenceCreatedNotification($event));
 });
 
-Route::domain('tickets.laravents.com')->group(function () {
-    Route::get('/', function() {
+Route::domain('tickets.laravents.com')->group(function ($router) {
+    $router->get('/', function() {
         return 'Hello from tickets.laravents.com!';
     });
 
-    Route::get('/123', function() {
+    $router->get('/123', function() {
         return 'Hello from tickets.laravents.com!';
     });
 });
