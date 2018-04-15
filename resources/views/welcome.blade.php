@@ -38,7 +38,21 @@
             <div class="row">
                 <div class="col-12">
                     <h3 class="text-center">Conferences</h3>
-                    <conference-list :per_page="12" :with_pagination="true"></conference-list>
+                    <conference-list :per_page="3" :with_pagination="false"></conference-list>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-center">Meetups</h3>
+                    <meetup-list :per_page="3" :with_pagination="false"></meetup-list>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-center">Hackathons</h3>
+                    <hackathon-list :per_page="3" :with_pagination="false"></hackathon-list>
                 </div>
             </div>
         </div>

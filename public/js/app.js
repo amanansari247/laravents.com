@@ -9412,7 +9412,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
-            conferences: [],
+            items: [],
             links: {},
             pages: {},
             currentPage: {},
@@ -9420,12 +9420,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     mounted: function mounted() {
-        this.getConferences();
+        this.getItems();
     },
 
 
     methods: {
-        getConferences: function getConferences(link) {
+        getItems: function getItems(link) {
             var perPage = this.per_page;
             if (typeof perPage === 'undefined') {
                 perPage = '12';
@@ -9437,7 +9437,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var self = this;
             axios.get(link + '&perPage=' + perPage).then(function (response) {
-                self.conferences = response.data.data;
+                self.items = response.data.data;
                 self.links = response.data.links;
                 self.currentPage = response.data.meta.current_page;
                 self.pages = response.data.meta.last_page;
@@ -9552,26 +9552,105 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['per_page', 'with_pagination'],
+
     data: function data() {
         return {
-            hackathons: []
+            items: [],
+            links: {},
+            pages: {},
+            currentPage: {},
+            withPagination: this.with_pagination
         };
     },
     mounted: function mounted() {
-        this.getHackathons();
+        this.getItems();
     },
 
 
     methods: {
-        getHackathons: function getHackathons() {
+        getItems: function getItems(link) {
+            var perPage = this.per_page;
+            if (typeof perPage === 'undefined') {
+                perPage = '12';
+            }
+
+            if (typeof link === 'undefined') {
+                link = 'api/hackathons?page=1';
+            }
+
             var self = this;
-            axios.get('/api/hackathons').then(function (response) {
-                self.hackathons = response.data.data;
+            axios.get(link + '&perPage=' + perPage).then(function (response) {
+                self.items = response.data.data;
+                self.links = response.data.links;
+                self.currentPage = response.data.meta.current_page;
+                self.pages = response.data.meta.last_page;
             }).catch(function (error) {
                 console.log(error);
             });
+        },
+
+        truncate: function truncate(str, length, ending) {
+            if (length == null) {
+                length = 100;
+            }
+
+            if (ending == null) {
+                ending = '...';
+            }
+
+            if (str.length > length) {
+                return str.substring(0, length - ending.length) + ending;
+            } else {
+                return str;
+            }
         }
     }
 });
@@ -9651,26 +9730,105 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['per_page', 'with_pagination'],
+
     data: function data() {
         return {
-            meetups: []
+            items: [],
+            links: {},
+            pages: {},
+            currentPage: {},
+            withPagination: this.with_pagination
         };
     },
     mounted: function mounted() {
-        this.getMeetups();
+        this.getItems();
     },
 
 
     methods: {
-        getMeetups: function getMeetups() {
+        getItems: function getItems(link) {
+            var perPage = this.per_page;
+            if (typeof perPage === 'undefined') {
+                perPage = '12';
+            }
+
+            if (typeof link === 'undefined') {
+                link = 'api/meetups?page=1';
+            }
+
             var self = this;
-            axios.get('/api/meetups').then(function (response) {
-                self.meetups = response.data.data;
+            axios.get(link + '&perPage=' + perPage).then(function (response) {
+                self.items = response.data.data;
+                self.links = response.data.links;
+                self.currentPage = response.data.meta.current_page;
+                self.pages = response.data.meta.last_page;
             }).catch(function (error) {
                 console.log(error);
             });
+        },
+
+        truncate: function truncate(str, length, ending) {
+            if (length == null) {
+                length = 100;
+            }
+
+            if (ending == null) {
+                ending = '...';
+            }
+
+            if (str.length > length) {
+                return str.substring(0, length - ending.length) + ending;
+            } else {
+                return str;
+            }
         }
     }
 });
@@ -13921,7 +14079,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -14026,7 +14184,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51993,9 +52151,165 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _vm.items.length
+      ? _c("div", [
+          _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.items, function(item) {
+              return _c("div", { staticClass: "col-4" }, [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _c("a", { attrs: { href: "/c/" + item.id } }, [
+                        _vm._v(_vm._s(item.title))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(_vm._s(_vm.truncate(item.description, 120)))
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("br")
+              ])
+            })
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.withPagination,
+                  expression: "withPagination"
+                }
+              ],
+              staticClass: "row justify-content-md-center"
+            },
+            [
+              _c("div", { staticClass: "col align-self-center" }, [
+                _c("nav", { attrs: { "aria-label": "pagination" } }, [
+                  _c(
+                    "ul",
+                    { staticClass: "pagination" },
+                    [
+                      _c(
+                        "li",
+                        {
+                          staticClass: "page-item",
+                          class: { disabled: !_vm.links.prev }
+                        },
+                        [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "page-link",
+                              on: {
+                                click: function($event) {
+                                  _vm.getItems(_vm.links.prev)
+                                }
+                              }
+                            },
+                            [
+                              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                                _vm._v("«")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "sr-only" }, [
+                                _vm._v("Previous")
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.pages, function(page) {
+                        return _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            class: { active: _vm.currentPage === page }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                on: {
+                                  click: function($event) {
+                                    _vm.getItems("api/hackathons?page=" + page)
+                                  }
+                                }
+                              },
+                              [_vm._v(_vm._s(page))]
+                            ),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "sr-only" }, [
+                              _vm._v("(current)")
+                            ])
+                          ]
+                        )
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        {
+                          staticClass: "page-item",
+                          class: { disabled: !_vm.links.next }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              on: {
+                                click: function($event) {
+                                  _vm.getItems(_vm.links.next)
+                                }
+                              }
+                            },
+                            [
+                              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                                _vm._v("»")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "sr-only" }, [
+                                _vm._v("Next")
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ],
+                    2
+                  )
+                ])
+              ])
+            ]
+          )
+        ])
+      : _c("h2", { staticClass: "text-center text-muted" }, [
+          _vm._v("\n        There are no hackathons at this time. How about "),
+          _vm._m(0),
+          _vm._v(" one?\n    ")
+        ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("strong", [
+      _c("a", { attrs: { href: "/events/submit" } }, [_vm._v("submit")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -52751,23 +53065,23 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.conferences.length
+    _vm.items.length
       ? _c("div", [
           _c(
             "div",
             { staticClass: "row" },
-            _vm._l(_vm.conferences, function(conference) {
+            _vm._l(_vm.items, function(item) {
               return _c("div", { staticClass: "col-4" }, [
                 _c("div", { staticClass: "card" }, [
                   _c("div", { staticClass: "card-body" }, [
                     _c("h5", { staticClass: "card-title" }, [
-                      _c("a", { attrs: { href: "/c/" + conference.id } }, [
-                        _vm._v(_vm._s(conference.title))
+                      _c("a", { attrs: { href: "/c/" + item.id } }, [
+                        _vm._v(_vm._s(item.title))
                       ])
                     ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(_vm.truncate(conference.description, 120)))
+                      _vm._v(_vm._s(_vm.truncate(item.description, 120)))
                     ])
                   ])
                 ]),
@@ -52810,7 +53124,7 @@ var render = function() {
                               staticClass: "page-link",
                               on: {
                                 click: function($event) {
-                                  _vm.getConferences(_vm.links.prev)
+                                  _vm.getItems(_vm.links.prev)
                                 }
                               }
                             },
@@ -52841,9 +53155,7 @@ var render = function() {
                                 staticClass: "page-link",
                                 on: {
                                   click: function($event) {
-                                    _vm.getConferences(
-                                      "api/conferences?page=" + page
-                                    )
+                                    _vm.getItems("api/conferences?page=" + page)
                                   }
                                 }
                               },
@@ -52870,7 +53182,7 @@ var render = function() {
                               staticClass: "page-link",
                               on: {
                                 click: function($event) {
-                                  _vm.getConferences(_vm.links.next)
+                                  _vm.getItems(_vm.links.next)
                                 }
                               }
                             },
@@ -52896,12 +53208,21 @@ var render = function() {
         ])
       : _c("h2", { staticClass: "text-center text-muted" }, [
           _vm._v("\n        There are no conferences at this time. How about "),
-          _c("a", { attrs: { href: "/c/create" } }, [_vm._v("create")]),
+          _vm._m(0),
           _vm._v(" one?\n    ")
         ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("strong", [
+      _c("a", { attrs: { href: "/events/submit" } }, [_vm._v("submit")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -52920,9 +53241,165 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _vm.items.length
+      ? _c("div", [
+          _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.items, function(item) {
+              return _c("div", { staticClass: "col-4" }, [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _c("a", { attrs: { href: "/c/" + item.id } }, [
+                        _vm._v(_vm._s(item.title))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(_vm._s(_vm.truncate(item.description, 120)))
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("br")
+              ])
+            })
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.withPagination,
+                  expression: "withPagination"
+                }
+              ],
+              staticClass: "row justify-content-md-center"
+            },
+            [
+              _c("div", { staticClass: "col align-self-center" }, [
+                _c("nav", { attrs: { "aria-label": "pagination" } }, [
+                  _c(
+                    "ul",
+                    { staticClass: "pagination" },
+                    [
+                      _c(
+                        "li",
+                        {
+                          staticClass: "page-item",
+                          class: { disabled: !_vm.links.prev }
+                        },
+                        [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "page-link",
+                              on: {
+                                click: function($event) {
+                                  _vm.getItems(_vm.links.prev)
+                                }
+                              }
+                            },
+                            [
+                              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                                _vm._v("«")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "sr-only" }, [
+                                _vm._v("Previous")
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.pages, function(page) {
+                        return _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            class: { active: _vm.currentPage === page }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                on: {
+                                  click: function($event) {
+                                    _vm.getItems("api/meetups?page=" + page)
+                                  }
+                                }
+                              },
+                              [_vm._v(_vm._s(page))]
+                            ),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "sr-only" }, [
+                              _vm._v("(current)")
+                            ])
+                          ]
+                        )
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        {
+                          staticClass: "page-item",
+                          class: { disabled: !_vm.links.next }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              on: {
+                                click: function($event) {
+                                  _vm.getItems(_vm.links.next)
+                                }
+                              }
+                            },
+                            [
+                              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                                _vm._v("»")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "sr-only" }, [
+                                _vm._v("Next")
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ],
+                    2
+                  )
+                ])
+              ])
+            ]
+          )
+        ])
+      : _c("h2", { staticClass: "text-center text-muted" }, [
+          _vm._v("\n        There are no meetups at this time. How about "),
+          _vm._m(0),
+          _vm._v(" one?\n    ")
+        ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("strong", [
+      _c("a", { attrs: { href: "/events/submit" } }, [_vm._v("submit")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

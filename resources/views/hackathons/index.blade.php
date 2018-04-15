@@ -15,10 +15,10 @@
 @section('content')
     <div class="container">
         <div class="page-header">
-            <h1>Conferences</h1>
+            <h1>Hackathons</h1>
         </div>
 
-        <conference-list :per_page="12" :with_pagination="true"></conference-list>
+        <hackathon-list :per_page="12" :with_pagination="true"></hackathon-list>
     </div>
 @endsection
 

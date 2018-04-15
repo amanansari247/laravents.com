@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('page_title')
-    Conferences
+    Meetups
 @endsection
 
 @push('styles')
@@ -15,10 +15,10 @@
 @section('content')
     <div class="container">
         <div class="page-header">
-            <h1>Conferences</h1>
+            <h1>Meetups</h1>
         </div>
 
-        <conference-list :per_page="12" :with_pagination="true"></conference-list>
+        <meetup-list :per_page="12" :with_pagination="true"></meetup-list>
     </div>
 @endsection
 

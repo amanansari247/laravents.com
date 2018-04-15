@@ -1,16 +1,16 @@
 <template>
     <div>
-        <div v-if="conferences.length">
+        <div v-if="items.length">
             <div class="row">
-                <div class="col-4" v-for="conference in conferences">
+                <div class="col-4" v-for="item in items">
                     <div class="card">
-                        <!--<img v-bind:src="conference.header_image" v-bind:alt="conference.title" class="card-img-top">-->
+                        <!--<img v-bind:src="item.header_image" v-bind:alt="item.title" class="card-img-top">-->
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a v-bind:href="'/c/' + conference.id">{{ conference.title }}</a>
+                                <a v-bind:href="'/c/' + item.id">{{ item.title }}</a>
                             </h5>
 
-                            <p class="card-text">{{ truncate(conference.description, 120) }}</p>
+                            <p class="card-text">{{ truncate(item.description, 120) }}</p>
                         </div>
                     </div>
                     <br>
@@ -21,19 +21,19 @@
                     <nav aria-label="pagination">
                         <ul class="pagination">
                             <li class="page-item" v-bind:class="{ disabled: !links.prev }">
-                            <span class="page-link" v-on:click="getConferences(links.prev)">
+                            <span class="page-link" v-on:click="getItems(links.prev)">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </span>
                             </li>
 
                             <li class="page-item" v-bind:class="{ active: currentPage === page }" v-for="page in pages">
-                                <a class="page-link" v-on:click="getConferences('api/conferences?page=' + page)">{{ page }}</a>
+                                <a class="page-link" v-on:click="getItems('api/conferences?page=' + page)">{{ page }}</a>
                                 <span class="sr-only">(current)</span>
                             </li>
 
                             <li class="page-item" v-bind:class="{ disabled: !links.next }">
-                                <a class="page-link" v-on:click="getConferences(links.next)">
+                                <a class="page-link" v-on:click="getItems(links.next)">
                                     <span aria-hidden="true">&raquo;</span>
                                     <span class="sr-only">Next</span>
                                 </a>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <h2 class="text-center text-muted" v-else>
-            There are no conferences at this time. How about <a href="/c/create">create</a> one?
+            There are no conferences at this time. How about <strong><a href="/events/submit">submit</a></strong> one?
         </h2>
     </div>
 </template>
@@ -55,7 +55,7 @@
 
         data() {
             return {
-                conferences: [],
+                items: [],
                 links: {},
                 pages: {},
                 currentPage: {},
@@ -64,11 +64,11 @@
         },
 
         mounted() {
-            this.getConferences();
+            this.getItems();
         },
 
         methods: {
-            getConferences: function(link) {
+            getItems: function(link) {
                 let perPage = this.per_page;
                 if (typeof perPage === 'undefined') {
                     perPage = '12';
@@ -81,7 +81,7 @@
                 let self = this;
                 axios.get(link + '&perPage=' + perPage)
                     .then(function (response) {
-                        self.conferences = response.data.data;
+                        self.items = response.data.data;
                         self.links = response.data.links;
                         self.currentPage = response.data.meta.current_page;
                         self.pages = response.data.meta.last_page;

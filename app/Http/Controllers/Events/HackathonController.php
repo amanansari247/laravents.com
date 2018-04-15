@@ -1,26 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Api\Events;
+namespace App\Http\Controllers\Events;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\HackathonResource;
 use App\Models\Hackathon;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HackathonController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param Request $request
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection|\Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $perPage = $request->query('perPage');
-        $hackathons = (new Hackathon)->orderByDesc('created_at')->paginate($perPage);
+        return view('hackathons.index');
+    }
 
-        return HackathonResource::collection($hackathons);
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -37,10 +42,23 @@ class HackathonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Hackathon  $hackathon
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Hackathon $hackathon)
+    public function show($id)
+    {
+        $hackathon = Hackathon::findOrFail($id);
+
+        return view('hackathons.show', compact('hackathon'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }
@@ -49,10 +67,10 @@ class HackathonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Hackathon  $hackathon
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hackathon $hackathon)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -60,10 +78,10 @@ class HackathonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Hackathon  $hackathon
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hackathon $hackathon)
+    public function destroy($id)
     {
         //
     }
