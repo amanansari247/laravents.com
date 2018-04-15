@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Events;
 
+use App\Http\Controllers\Controller;
 use App\Models\Conference;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class ConferenceController extends Controller
 {

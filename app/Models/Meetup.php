@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
 use Laravel\Scout\Searchable;
 
 /**
@@ -39,7 +40,7 @@ use Laravel\Scout\Searchable;
  */
 class Meetup extends Model
 {
-    use Searchable, SoftDeletes;
+    use Searchable, SoftDeletes, Notifiable;
 
     protected $guarded = [];
 

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api\Events;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\HackathonResource;
 use App\Models\Hackathon;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class HackathonController extends Controller
 {

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api\Events;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\MeetupResource;
 use App\Models\Meetup;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class MeetupController extends Controller
 {
