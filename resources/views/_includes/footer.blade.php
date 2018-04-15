@@ -29,9 +29,9 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 mt-4 mt-lg-0">
-                Premium and Open Source dashboard template with responsive and high quality UI. For Free!
+                Join & host Laravel conferences, hackathons and meetups around the world.
             </div>
         </div>
     </div>

@@ -74,4 +74,28 @@ class User extends Authenticatable
     {
         return $this->hasMany(Conference::class, 'user_id', 'id');
     }
+
+    /**
+     * @param int $s
+     * @param string $d
+     * @param string $r
+     * @param bool $img
+     * @param array $atts
+     * @return string
+     */
+    public function getGravatar($s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array())
+    {
+        $url = 'https://www.gravatar.com/avatar/';
+        $url .= md5( strtolower( trim( $this->email ) ) );
+        $url .= "?s=$s&d=$d&r=$r";
+
+        if ( $img ) {
+            $url = '<img src="' . $url . '"';
+            foreach ( $atts as $key => $val )
+                $url .= ' ' . $key . '="' . $val . '"';
+            $url .= ' />';
+        }
+
+        return $url;
+    }
 }

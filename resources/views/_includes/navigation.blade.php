@@ -44,7 +44,7 @@
                     </div>
                     <div class="dropdown">
                         <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown" aria-expanded="false">
-                            <span class="avatar" style="background-image: url(./demo/faces/female/25.jpg)"></span>
+                            <img class="avatar" src="{{ Auth::user()->getGravatar() }}" alt="{{ Auth::user()->name }}">
                             <span class="ml-2 d-none d-lg-block">
                           <span class="text-default">{{ Auth::user()->name }}</span>
                           <small class="text-muted d-block mt-1">Administrator</small>
