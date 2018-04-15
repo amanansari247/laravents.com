@@ -17,7 +17,7 @@
                             <img class="avatar" src="{{ Auth::user()->getGravatar() }}" alt="{{ Auth::user()->name }}">
                             <span class="ml-2 d-none d-lg-block">
                           <span class="text-default">{{ Auth::user()->name }}</span>
-                          <small class="text-muted d-block mt-1">Administrator</small>
+                          {{--<small class="text-muted d-block mt-1">Administrator</small>--}}
                         </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" x-placement="bottom-end" style="position: absolute; transform: translate3d(136px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
