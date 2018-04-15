@@ -38,8 +38,8 @@ class MeetupController extends Controller
         @list($type, $file_data) = explode(';', $file_data);
         @list(, $file_data) = explode(',', $file_data);
 
-        if($file_data!=""){
-            Storage::disk('public')->put($file_name,base64_decode($file_data));
+        if ($file_data!="") {
+            Storage::disk('public')->put($file_name, base64_decode($file_data));
 
             $img = Image::make('storage/' . $file_name);
 //            $img->crop(100, 100, 25, 25);

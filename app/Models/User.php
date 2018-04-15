@@ -86,16 +86,17 @@ class User extends Authenticatable
      * @param array $atts
      * @return string
      */
-    public function getGravatar($s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array())
+    public function getGravatar($s = 80, $d = 'mm', $r = 'g', $img = false, $atts = [])
     {
         $url = 'https://www.gravatar.com/avatar/';
-        $url .= md5( strtolower( trim( $this->email ) ) );
+        $url .= md5(strtolower(trim($this->email)));
         $url .= "?s=$s&d=$d&r=$r";
 
-        if ( $img ) {
+        if ($img) {
             $url = '<img src="' . $url . '"';
-            foreach ( $atts as $key => $val )
+            foreach ($atts as $key => $val) {
                 $url .= ' ' . $key . '="' . $val . '"';
+            }
             $url .= ' />';
         }
 

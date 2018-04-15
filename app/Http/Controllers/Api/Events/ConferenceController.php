@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ConferenceResource;
 use App\Models\Conference;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -39,7 +38,7 @@ class ConferenceController extends Controller
         @list($type, $file_data) = explode(';', $file_data);
         @list(, $file_data) = explode(',', $file_data);
 
-        if($file_data!="") {
+        if ($file_data!="") {
             Storage::disk('public')->put($file_name, base64_decode($file_data));
 
             $img = Image::make('storage/' . $file_name);
@@ -98,7 +97,7 @@ class ConferenceController extends Controller
         //
     }
 
-    public function createImageFromBase64(Request $request){
-
+    public function createImageFromBase64(Request $request)
+    {
     }
 }

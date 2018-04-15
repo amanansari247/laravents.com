@@ -4,7 +4,6 @@ namespace App\Listeners\Users;
 
 use App\Notifications\Users\WelcomeNotification;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendWelcomeNotification implements ShouldQueue
