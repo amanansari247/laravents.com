@@ -19,6 +19,7 @@ class CreateMeetupsTable extends Migration
             $table->boolean('is_approved')->default(false);
 
             $table->string('title');
+            $table->string('slug')->nullable();
             $table->string('website')->nullable();
 
             $table->string('meetup_url')->nullable();

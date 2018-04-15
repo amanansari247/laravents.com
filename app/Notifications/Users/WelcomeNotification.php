@@ -4,6 +4,7 @@ namespace App\Notifications\Users;
 
 use App\Models\User;
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -35,7 +36,7 @@ class WelcomeNotification extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['mail', 'database', 'broadcast'];
     }
 
     /**
@@ -68,5 +69,20 @@ class WelcomeNotification extends Notification implements ShouldQueue
             'from_user_name' => (new \App\Models\User)->first()->name,
             'from_user_gravatar' => (new \App\Models\User)->first()->getGravatar()
         ];
+    }
+
+    /**
+     * Get the broadcastable representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return BroadcastMessage
+     */
+    public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage([
+            'title' => 'Welcome to ' . config('app.name') . '!',
+            'from_user_name' => (new \App\Models\User)->first()->name,
+            'from_user_gravatar' => (new \App\Models\User)->first()->getGravatar()
+        ]);
     }
 }

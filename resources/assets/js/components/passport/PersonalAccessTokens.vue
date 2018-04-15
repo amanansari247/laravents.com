@@ -7,11 +7,11 @@
 <template>
     <div>
         <div>
-            <div class="card card-default">
+            <div class="card">
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <span>
-                            Personal Access Tokens
+                            Personal Access Tokens &nbsp;
                         </span>
 
                         <a class="action-link" tabindex="-1" @click="showCreateTokenForm">

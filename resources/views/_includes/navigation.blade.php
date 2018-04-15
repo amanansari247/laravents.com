@@ -21,10 +21,10 @@
                         </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" x-placement="bottom-end" style="position: absolute; transform: translate3d(136px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ url('/account') }}">
                                 <i class="dropdown-icon fe fe-user"></i> Profile
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ url('/account/settings') }}">
                                 <i class="dropdown-icon fe fe-settings"></i> Settings
                             </a>
                             <a class="dropdown-item" href="#">

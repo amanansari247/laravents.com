@@ -28,10 +28,20 @@
         },
 
         mounted() {
+            this.watchForNotifications();
             this.getNotifications();
         },
 
         methods: {
+            watchForNotifications: function() {
+                Echo.private('App.Models.User.' + this.$parent.currentUser.id)
+                    .notification((notification) => {
+                        console.log('test');
+                        self.notifications = '';
+                        self.notifications = notification.data;
+                    });
+            },
+
             getNotifications: function() {
                 let self = this;
 

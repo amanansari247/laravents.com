@@ -19,6 +19,7 @@ class CreateHackathonsTable extends Migration
             $table->boolean('is_approved')->default(false);
 
             $table->string('title');
+            $table->string('slug')->nullable();
             $table->string('website')->nullable();
 
             $table->longText('description');

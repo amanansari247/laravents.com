@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Scout\Searchable;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 /**
  * App\Models\Conference
@@ -40,10 +42,26 @@ use Laravel\Scout\Searchable;
  */
 class Conference extends Model
 {
-    use Searchable, SoftDeletes, Notifiable;
+    use Searchable, SoftDeletes, Notifiable, HasSlug;
 
+    /**
+     * @var array
+     */
     protected $guarded = [];
 
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
+    }
+
+    /**
+     * @var array
+     */
     protected $casts = [
         'is_approved' => 'boolean'
     ];

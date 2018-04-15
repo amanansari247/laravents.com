@@ -6,11 +6,11 @@
 
 <template>
     <div>
-        <div class="card card-default">
+        <div class="card">
             <div class="card-header">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <span>
-                        OAuth Clients
+                        OAuth Clients &nbsp;
                     </span>
 
                     <a class="action-link" tabindex="-1" @click="showCreateClientForm">

@@ -19,12 +19,7 @@
                 <h1>Submit your event</h1>
             </div>
 
-            <div class="card">
-                <div class="card-body">
-                    <create-event></create-event>
-                </div>
-            </div>
-
+            <create-event></create-event>
         </div>
     </main>
 @endsection

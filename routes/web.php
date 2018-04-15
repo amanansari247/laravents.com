@@ -1,11 +1,9 @@
 <?php
 
-Route::domain('tickets.laravents.com')->group(function() {
-    Route::get('/', 'Tickets\TicketController@index');
+use App\Notifications\Users\WelcomeNotification;
 
-    Route::get('/123', function() {
-        return 'Hello from tickets.laravents.com!';
-    });
+Route::domain('tickets.laravents.test')->group(function() {
+    Route::get('/', 'Tickets\TicketController@index');
 });
 
 Route::get('/', function () {
@@ -25,7 +23,11 @@ Route::resource('m', 'Events\MeetupController');
 Route::resource('h', 'Events\HackathonController');
 
 Route::get('/test', function () {
-    $event = (new App\Models\Conference)->first();
-    $event->notify(new \App\Notifications\Events\ConferenceCreatedNotification($event));
+    $user = (new App\Models\User)->first();
+    $user->notify(new WelcomeNotification($user));
 });
 
+Route::group(['prefix' => 'account', 'middleware' => 'auth'], function() {
+    Route::get('/', 'Account\AccountController@getAccount');
+    Route::get('/settings', 'Account\SettingsController@getSettings');
+});
