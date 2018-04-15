@@ -16,12 +16,16 @@ require('./vue_libraries');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('random-qoute', require('./components/RandomQuote'));
+Vue.component('sponsor-form', require('./components/SponsorForm'));
+
 Vue.component('home-search', require('./components/HomeSearch'));
 Vue.component('meetup-list', require('./components/Meetups'));
 Vue.component('speaker-list', require('./components/SpeakerList'));
 Vue.component('hackathon-list', require('./components/Hackathons'));
 Vue.component('conference-list', require('./components/Conferences'));
 
+Vue.component('create-conference', require('./components/CreateConference'));
 
 Vue.config.productionTip = false;
 

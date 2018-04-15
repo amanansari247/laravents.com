@@ -4,6 +4,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/events/submit', function () {
+    return view('events.create');
+});
+
 Auth::routes();
 Route::get('/auth/social/{provider}', 'Auth\SocialController@redirectToProvider');
 Route::get('/auth/social/{provider}/callback', 'Auth\SocialController@handleProviderCallback');

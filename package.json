@@ -22,8 +22,11 @@
     "dependencies": {
         "algoliasearch": "^3.26.0",
         "autocomplete.js": "^0.29.0",
+        "chart.js": "^2.7.2",
         "instantsearch.js": "^2.6.3",
+        "jquery-circle-progress": "^1.2.2",
         "laravel-mix-purgecss": "^2.0.0",
+        "npm": "^5.8.0",
         "places.js": "^1.6.0",
         "vue-instantsearch": "^1.5.2",
         "vue-router": "^3.0.1",

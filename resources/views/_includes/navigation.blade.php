@@ -1,58 +1,123 @@
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<div class="header py-4">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            <span class="logo-text">{{ config('app.name') }}</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                <li>
-                    <a href="{{ url('/') }}" class="nav-link">Home</a>
-                </li>
-
-                <li>
-                    <a href="{{ url('/c') }}" class="nav-link">Conferences</a>
-                </li>
-
-                <li>
-                    <a href="{{ url('/m') }}" class="nav-link">Meetups</a>
-                </li>
-
-                <li>
-                    <a href="{{ url('/h') }}" class="nav-link">Hackathons</a>
-                </li>
-            </ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
+        <div class="d-flex">
+            <a class="header-brand" href="{{ url('/') }}">
+                <span class="logo-text">{{ config('app.name') }}</span>
+            </a>
+            <div class="d-flex order-lg-2 ml-auto">
                 @guest
-                    <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                    <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                    <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                        <li><a class="nav-item" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                        <li><a class="nav-item" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                    </ul>
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                    <div class="dropdown d-none d-md-flex">
+                        <a class="nav-link icon" data-toggle="dropdown">
+                            <i class="fe fe-bell"></i>
+                            <span class="nav-unread"></span>
                         </a>
-
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                            <a href="#" class="dropdown-item d-flex">
+                                <span class="avatar mr-3 align-self-center" style="background-image: url(demo/faces/male/41.jpg)"></span>
+                                <div>
+                                    <strong>Nathan</strong> pushed new commit: Fix page load performance issue.
+                                    <div class="small text-muted">10 minutes ago</div>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item d-flex">
+                                <span class="avatar mr-3 align-self-center" style="background-image: url(demo/faces/female/1.jpg)"></span>
+                                <div>
+                                    <strong>Alice</strong> started new task: Tabler UI design.
+                                    <div class="small text-muted">1 hour ago</div>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item d-flex">
+                                <span class="avatar mr-3 align-self-center" style="background-image: url(demo/faces/female/18.jpg)"></span>
+                                <div>
+                                    <strong>Rose</strong> deployed new version of NodeJS REST Api V3
+                                    <div class="small text-muted">2 hours ago</div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item text-center text-muted-dark">Mark all as read</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown" aria-expanded="false">
+                            <span class="avatar" style="background-image: url(./demo/faces/female/25.jpg)"></span>
+                            <span class="ml-2 d-none d-lg-block">
+                          <span class="text-default">{{ Auth::user()->name }}</span>
+                          <small class="text-muted d-block mt-1">Administrator</small>
+                        </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" x-placement="bottom-end" style="position: absolute; transform: translate3d(136px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <a class="dropdown-item" href="#">
+                                <i class="dropdown-icon fe fe-user"></i> Profile
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="dropdown-icon fe fe-settings"></i> Settings
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="float-right"><span class="badge badge-primary">6</span></span>
+                                <i class="dropdown-icon fe fe-mail"></i> Inbox
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="dropdown-icon fe fe-send"></i> Message
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">
+                                <i class="dropdown-icon fe fe-help-circle"></i> Need help?
+                            </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                                                         document.getElementById('logout-form').submit();">
+                                <i class="dropdown-icon fe fe-log-out"></i> Sign out
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </a>
                         </div>
-                    </li>
-                @endguest
-            </ul>
+                    </div>
+                    @endguest
+            </div>
+            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
+                <span class="header-toggler-icon"></span>
+            </a>
         </div>
     </div>
-</nav>
+</div>
+
+<div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-3 ml-auto">
+                <form class="input-icon my-3 my-lg-0">
+                    <input type="search" class="form-control header-search" placeholder="Search…" tabindex="1">
+                    <div class="input-icon-addon">
+                        <i class="fe fe-search"></i>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg order-lg-first">
+                <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                    <li class="nav-item">
+                        <a href="{{ url('/') }}" class="nav-link">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ url('/c') }}" class="nav-link">Conferences</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ url('/h') }}" class="nav-link">Hackathons</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ url('/m') }}" class="nav-link">Meetups</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

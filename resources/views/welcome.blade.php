@@ -23,7 +23,7 @@
 
             <div class="row align-items-center">
                 <div class="col-md-6 offset-md-3">
-                    <a href="{{ url('/events/create') }}" class="btn btn-danger btn-lg btn-block">Submit your meetup / conference / hackathon</a>
+                    <a href="{{ url('/events/submit') }}" class="btn btn-danger btn-lg btn-block">Submit your meetup / conference / hackathon</a>
                 </div>
             </div>
 

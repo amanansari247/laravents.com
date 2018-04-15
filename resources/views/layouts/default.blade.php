@@ -21,6 +21,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 
 
@@ -35,10 +36,26 @@
     </script>
 </head>
 <body>
-    <div id="app">
-        @include('_includes.navigation')
+    <div id="app" class="page">
+        @if(request()->path() == 'login')
+            <div class="page-single">
+                @yield('content')
+            </div>
+        @elseif(request()->path() == 'register')
+            <div class="page-single">
+                @yield('content')
+            </div>
+        @elseif(request()->path() == 'password/reset')
+            <div class="page-single">
+                @yield('content')
+            </div>
+        @else
+            <div class="page-main">
+                @include('_includes.navigation')
 
-        @yield('content')
+                @yield('content')
+            </div>
+        @endif
     </div>
 </body>
 </html>
