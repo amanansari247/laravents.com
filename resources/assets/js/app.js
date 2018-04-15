@@ -26,7 +26,11 @@ Vue.component('speaker-list', require('./components/SpeakerList'));
 Vue.component('hackathon-list', require('./components/Hackathons'));
 Vue.component('conference-list', require('./components/Conferences'));
 
+Vue.component('create-event', require('./components/CreateEvent'));
+
 Vue.component('create-conference', require('./components/CreateConference'));
+Vue.component('create-meetup', require('./components/CreateMeetup'));
+Vue.component('create-hackathon', require('./components/CreateHackathon'));
 
 Vue.config.productionTip = false;
 

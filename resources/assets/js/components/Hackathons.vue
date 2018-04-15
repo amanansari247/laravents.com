@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-4" v-for="item in items">
                     <div class="card">
-                        <!--<img v-bind:src="item.header_image" v-bind:alt="item.title" class="card-img-top">-->
+                        <img v-bind:src="item.header_image" v-bind:alt="item.title" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a v-bind:href="'/c/' + item.id">{{ item.title }}</a>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <h2 class="text-center text-muted" v-else>
-            There are no hackathons at this time. How about <strong><a href="/events/submit">submit</a></strong> one?
+            There are no hackathons at this time. How about <strong><a href="/events/create">submit</a></strong> one?
         </h2>
     </div>
 </template>

@@ -19,7 +19,12 @@
                 <h1>Submit your event</h1>
             </div>
 
-            <create-conference></create-conference>
+            <div class="card">
+                <div class="card-body">
+                    <create-event></create-event>
+                </div>
+            </div>
+
         </div>
     </main>
 @endsection

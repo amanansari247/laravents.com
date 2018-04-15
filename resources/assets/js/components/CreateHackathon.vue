@@ -23,16 +23,16 @@
                 <strong>Website</strong>
             </label>
             <div class="col-sm-12">
-                <input type="text" id="c_website" class="form-control" placeholder="https://myconference.com" v-model="item.website">
+                <input type="text" id="c_website" class="form-control" placeholder="https://myhackathon.com" v-model="item.website">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="c_ticket_url" class="col-sm-2 col-form-label">
-                <strong>Ticket-Website</strong>
+                <strong>RSVP-Website</strong>
             </label>
             <div class="col-sm-12">
-                <input type="text" id="c_ticket_url" class="form-control" placeholder="https://tickets.laravents.com/c/my-conference" v-model="item.ticket_url">
+                <input type="text" id="c_ticket_url" class="form-control" placeholder="https://tickets.laravents.com/h/my-hackathon" v-model="item.ticket_url">
             </div>
         </div>
     </div>
@@ -59,9 +59,9 @@
             createConference: function() {
                 let self = this;
 
-                axios.post('/api/conferences', this.item)
+                axios.post('/api/hackathons', this.item)
                     .then(function (response) {
-                        window.location = `/c/${response.data.data.slug}`;
+                        window.location = `/h/${response.data.data.slug}`;
                     })
                     .catch(function (error) {
                         console.log(error);

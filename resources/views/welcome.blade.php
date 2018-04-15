@@ -23,7 +23,7 @@
 
             <div class="row align-items-center">
                 <div class="col-md-6 offset-md-3">
-                    <a href="{{ url('/events/submit') }}" class="btn btn-danger btn-lg btn-block">Submit your meetup / conference / hackathon</a>
+                    <a href="{{ url('/events/create') }}" class="btn btn-danger btn-lg btn-block">Submit your meetup / conference / hackathon</a>
                 </div>
             </div>
 
@@ -37,21 +37,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h3 class="text-center">Conferences</h3>
+                    <h3 class="text-center">Recent Conferences</h3>
                     <conference-list :per_page="3" :with_pagination="false"></conference-list>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12">
-                    <h3 class="text-center">Meetups</h3>
+                    <h3 class="text-center">Recent Meetups</h3>
                     <meetup-list :per_page="3" :with_pagination="false"></meetup-list>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12">
-                    <h3 class="text-center">Hackathons</h3>
+                    <h3 class="text-center">Recent Hackathons</h3>
                     <hackathon-list :per_page="3" :with_pagination="false"></hackathon-list>
                 </div>
             </div>
