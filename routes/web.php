@@ -21,7 +21,7 @@ Route::get('/test', function () {
     $event->notify(new \App\Notifications\Events\ConferenceCreatedNotification($event));
 });
 
-Route::group(['domain' => 'tickets.laravents.com'])->group(function ($router) {
+Route::group(['domain' => 'tickets.laravents.com'], function($router) {
     $router->get('/', function() {
         return 'Hello from tickets.laravents.com!';
     });
