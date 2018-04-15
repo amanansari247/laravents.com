@@ -18,6 +18,7 @@ require('./vue_libraries');
 
 Vue.component('random-qoute', require('./components/RandomQuote'));
 Vue.component('sponsor-form', require('./components/SponsorForm'));
+Vue.component('notification-widget', require('./components/NotificationWidget'));
 
 Vue.component('home-search', require('./components/HomeSearch'));
 Vue.component('meetup-list', require('./components/Meetups'));
@@ -30,5 +31,10 @@ Vue.component('create-conference', require('./components/CreateConference'));
 Vue.config.productionTip = false;
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data() {
+        return {
+            currentUser: window.Laravents.currentUser
+        }
+    }
 });

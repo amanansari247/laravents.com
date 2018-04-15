@@ -2,6 +2,8 @@
 
 namespace App\Configuration;
 
+use Illuminate\Support\Facades\Auth;
+
 class Laravents
 {
     public static function scriptVariables()
@@ -9,6 +11,7 @@ class Laravents
         return [
             'algoliaAppID' => env('ALGOLIA_APP_ID'),
             'algoliaSearchOnlyKey' => env('ALGOLIA_SEARCH_ONLY_KEY'),
+            'currentUser' => Auth::user()
         ];
     }
 }
