@@ -1,8 +1,10 @@
 <?php
 
-use App\Notifications\Users\WelcomeNotification;
-
 Route::domain('tickets.laravents.test')->group(function() {
+    Route::get('/', 'Tickets\TicketController@index');
+});
+
+Route::domain('tickets.laravents.com')->group(function() {
     Route::get('/', 'Tickets\TicketController@index');
 });
 
@@ -21,11 +23,6 @@ Route::resource('events', 'Events\EventController');
 Route::resource('c', 'Events\ConferenceController');
 Route::resource('m', 'Events\MeetupController');
 Route::resource('h', 'Events\HackathonController');
-
-Route::get('/test', function () {
-    $user = (new App\Models\User)->first();
-    $user->notify(new WelcomeNotification($user));
-});
 
 Route::group(['prefix' => 'account', 'middleware' => 'auth'], function() {
     Route::get('/', 'Account\AccountController@getAccount');
