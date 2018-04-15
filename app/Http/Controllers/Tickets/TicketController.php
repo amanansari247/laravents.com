@@ -14,7 +14,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        return 'Hello from tickets.laravents.com!';
     }
 
     /**
