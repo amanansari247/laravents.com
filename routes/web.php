@@ -25,4 +25,8 @@ Route::domain('tickets.laravents.com')->group(function () {
     Route::get('/', function() {
         return 'Hello from tickets.laravents.com!';
     });
+
+    Route::get('/123', function() {
+        return 'Hello from tickets.laravents.com!';
+    });
 });
