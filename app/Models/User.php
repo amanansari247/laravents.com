@@ -29,6 +29,8 @@ use Laravel\Passport\HasApiTokens;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Conference[] $conference
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Hackathon[] $hackathons
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Meetup[] $meetups
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Passport\Client[] $clients
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Passport\Token[] $tokens
  */
 class User extends Authenticatable
 {

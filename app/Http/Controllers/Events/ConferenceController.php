@@ -42,12 +42,12 @@ class ConferenceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param $id
+     * @param $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $conference = Conference::findOrFail($id);
+        $conference = Conference::whereSlug($slug)->first();
 
         return view('conferences.show', compact('conference'));
     }

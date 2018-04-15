@@ -20,6 +20,15 @@
             </div>
 
             <div class="form-group row">
+                <label for="c_name" class="col-sm-2 col-form-label">
+                    <strong>Address</strong>
+                </label>
+                <div class="col-sm-12">
+                    <input type="search" id="c_address" class="form-control" placeholder="Where is your hackathon?">
+                </div>
+            </div>
+
+            <div class="form-group row">
                 <label for="c_website" class="col-sm-2 col-form-label">
                     <strong>Website</strong>
                 </label>
@@ -29,17 +38,18 @@
             </div>
 
             <div class="form-group row">
-                <label for="c_ticket_url" class="col-sm-2 col-form-label">
-                    <strong>Ticket-Website</strong>
+                <label for="c_header_image" class="col-sm-2 col-form-label">
+                    <strong>Image</strong>
                 </label>
-                <div class="col-sm-12">
-                    <input type="text" id="c_ticket_url" class="form-control" placeholder="https://tickets.laravents.com/h/my-hackathon" v-model="item.ticket_url">
+
+                <div class="col-6">
+                    <input type="file" class="form-control" id="c_header_image" v-on:change="onFileChange">
                 </div>
             </div>
         </div>
 
         <div class="card-footer text-right">
-            <button type="submit" class="btn btn-primary">Submit Hackathon</button>
+            <button type="submit" class="btn btn-primary" v-on:click="createHackathon">Submit Hackathon</button>
         </div>
     </div>
 </template>
@@ -52,17 +62,65 @@
                     title: null,
                     description: null,
                     website: null,
-                    ticket_url: null
+                    ticket_url: null,
+                    lat: null,
+                    lon: null,
+                    address: null,
+                    city: null,
+                    country: null,
+                    state: null,
+                    header_image: null
                 }
             }
         },
 
         mounted() {
-
+            this.setupPlaces();
         },
 
         methods: {
-            createConference: function() {
+            onFileChange(e) {
+                var files = e.target.files || e.dataTransfer.files;
+                if (!files.length)
+                    return;
+                this.createImage(files[0]);
+            },
+
+            createImage(file) {
+                let self = this;
+
+                var image = new Image();
+                var reader = new FileReader();
+
+                reader.onload = (e) => {
+                    self.item.header_image = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            },
+
+            setupPlaces: function() {
+                let self = this;
+
+                var placesAutocomplete = places({
+                    container: document.querySelector('#c_address'),
+                    type: 'address'
+                });
+
+                placesAutocomplete.on('change', e => console.log(e.suggestion));
+
+
+                placesAutocomplete.on('change', function resultSelected(e) {
+                    self.item.state = e.suggestion.administrative || '';
+                    self.item.city = e.suggestion.city || '';
+                    self.item.lat = e.suggestion.latlng.lat || '';
+                    self.item.lon = e.suggestion.latlng.lng || '';
+                    self.item.country = e.suggestion.country || '';
+                    self.item.address = e.suggestion.value || '';
+                });
+            },
+
+            createHackathon: function() {
                 let self = this;
 
                 axios.post('/api/hackathons', this.item)

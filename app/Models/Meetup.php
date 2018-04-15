@@ -39,6 +39,9 @@ use Spatie\Sluggable\SlugOptions;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meetup withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meetup withoutTrashed()
  * @mixin \Eloquent
+ * @property string|null $slug
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereSlug($value)
  */
 class Meetup extends Model
 {

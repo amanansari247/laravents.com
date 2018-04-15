@@ -4,10 +4,10 @@
             <div class="row">
                 <div class="col-4" v-for="item in items">
                     <div class="card">
-                        <img v-bind:src="item.header_image" v-bind:alt="item.title" class="card-img-top">
+                        <!--<img v-bind:src="item.header_image" v-bind:alt="item.title" class="card-img-top">-->
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a v-bind:href="'/c/' + item.id">{{ item.title }}</a>
+                                <a v-bind:href="'/h/' + item.slug">{{ item.title }}</a>
                             </h5>
 
                             <p class="card-text">{{ truncate(item.description, 120) }}</p>

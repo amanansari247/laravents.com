@@ -8659,6 +8659,10 @@ vue-loader@^13.7.1:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.6.0"
 
+vue-picture-input@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/vue-picture-input/-/vue-picture-input-2.1.5.tgz#02c4aa33d1ae921f53a4446f7053b31b44641b9d"
+
 vue-places@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/vue-places/-/vue-places-1.1.0.tgz#b8900f42b8e944f5a273727b358c80dcf0ea75d5"

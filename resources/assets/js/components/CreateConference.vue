@@ -45,10 +45,20 @@
                     <input type="text" id="c_ticket_url" class="form-control" placeholder="https://tickets.laravents.com/c/my-conference" v-model="item.ticket_url">
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label for="c_header_image" class="col-sm-2 col-form-label">
+                    <strong>Image</strong>
+                </label>
+
+                <div class="col-6">
+                    <input type="file" class="form-control" id="c_header_image" v-on:change="onFileChange">
+                </div>
+            </div>
         </div>
 
         <div class="card-footer text-right">
-            <button type="submit" class="btn btn-primary">Submit Conference</button>
+            <button type="submit" class="btn btn-primary" v-on:click="createConference">Submit Conference</button>
         </div>
     </div>
 </template>
@@ -62,12 +72,13 @@
                     description: null,
                     website: null,
                     ticket_url: null,
-                    lat: '',
-                    lon: '',
-                    address: '',
-                    city: '',
-                    country: '',
-                    state: '',
+                    lat: null,
+                    lon: null,
+                    address: null,
+                    city: null,
+                    country: null,
+                    state: null,
+                    header_image: null
                 }
             }
         },
@@ -77,6 +88,26 @@
         },
 
         methods: {
+            onFileChange(e) {
+                var files = e.target.files || e.dataTransfer.files;
+                if (!files.length)
+                    return;
+                this.createImage(files[0]);
+            },
+
+            createImage(file) {
+                let self = this;
+
+                var image = new Image();
+                var reader = new FileReader();
+
+                reader.onload = (e) => {
+                    self.item.header_image = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            },
+
             setupPlaces: function() {
                 let self = this;
 

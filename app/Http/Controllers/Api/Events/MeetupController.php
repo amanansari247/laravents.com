@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\MeetupResource;
 use App\Models\Meetup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class MeetupController extends Controller
 {
@@ -27,11 +29,38 @@ class MeetupController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return MeetupResource|\Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $file_data = $request->input('header_image');
+        $file_name = 'image_'.time().'.png';
+        @list($type, $file_data) = explode(';', $file_data);
+        @list(, $file_data) = explode(',', $file_data);
+
+        if($file_data!=""){
+            Storage::disk('public')->put($file_name,base64_decode($file_data));
+
+            $img = Image::make('storage/' . $file_name);
+//            $img->crop(100, 100, 25, 25);
+        }
+
+        $meetup = Meetup::create([
+            'user_id' => 1,
+            'title' => $request->get('title'),
+            'website' => $request->get('website'),
+            'meetup_url' => $request->get('meetup_url'),
+            'description' => $request->get('description'),
+            'header_image' => 'storage/' . $file_name,
+            'lat' => $request->get('lat'),
+            'lon' => $request->get('lon'),
+            'address' => $request->get('address'),
+            'country' => $request->get('country'),
+            'city' => $request->get('city'),
+            'state' => $request->get('state'),
+        ]);
+
+        return MeetupResource::make($meetup);
     }
 
     /**

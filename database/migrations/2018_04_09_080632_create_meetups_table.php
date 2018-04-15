@@ -26,6 +26,15 @@ class CreateMeetupsTable extends Migration
 
             $table->longText('description');
 
+            $table->string('header_image')->nullable();
+
+            $table->string('lat')->nullable();
+            $table->string('lon')->nullable();
+            $table->string('address')->nullable();
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
         });

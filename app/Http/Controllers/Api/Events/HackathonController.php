@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\HackathonResource;
 use App\Models\Hackathon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class HackathonController extends Controller
 {
@@ -27,11 +29,37 @@ class HackathonController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return HackathonResource|\Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $file_data = $request->input('header_image');
+        $file_name = 'image_'.time().'.png';
+        @list($type, $file_data) = explode(';', $file_data);
+        @list(, $file_data) = explode(',', $file_data);
+
+        if($file_data!=""){
+            Storage::disk('public')->put($file_name,base64_decode($file_data));
+
+            $img = Image::make('storage/' . $file_name);
+//            $img->crop(100, 100, 25, 25);
+        }
+
+        $hackathon = Hackathon::create([
+            'user_id' => 1,
+            'title' => $request->get('title'),
+            'website' => $request->get('website'),
+            'description' => $request->get('description'),
+            'header_image' => 'storage/' . $file_name,
+            'lat' => $request->get('lat'),
+            'lon' => $request->get('lon'),
+            'address' => $request->get('address'),
+            'country' => $request->get('country'),
+            'city' => $request->get('city'),
+            'state' => $request->get('state'),
+        ]);
+
+        return HackathonResource::make($hackathon);
     }
 
     /**

@@ -9526,6 +9526,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -9535,12 +9545,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 description: null,
                 website: null,
                 ticket_url: null,
-                lat: '',
-                lon: '',
-                address: '',
-                city: '',
-                country: '',
-                state: ''
+                lat: null,
+                lon: null,
+                address: null,
+                city: null,
+                country: null,
+                state: null,
+                header_image: null
             }
         };
     },
@@ -9550,6 +9561,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
+        onFileChange: function onFileChange(e) {
+            var files = e.target.files || e.dataTransfer.files;
+            if (!files.length) return;
+            this.createImage(files[0]);
+        },
+        createImage: function createImage(file) {
+            var self = this;
+
+            var image = new Image();
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                self.item.header_image = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        },
+
+
         setupPlaces: function setupPlaces() {
             var self = this;
 
@@ -9693,6 +9723,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -9701,15 +9741,65 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 title: null,
                 description: null,
                 website: null,
-                ticket_url: null
+                ticket_url: null,
+                lat: null,
+                lon: null,
+                address: null,
+                city: null,
+                country: null,
+                state: null,
+                header_image: null
             }
         };
     },
-    mounted: function mounted() {},
+    mounted: function mounted() {
+        this.setupPlaces();
+    },
 
 
     methods: {
-        createConference: function createConference() {
+        onFileChange: function onFileChange(e) {
+            var files = e.target.files || e.dataTransfer.files;
+            if (!files.length) return;
+            this.createImage(files[0]);
+        },
+        createImage: function createImage(file) {
+            var self = this;
+
+            var image = new Image();
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                self.item.header_image = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        },
+
+
+        setupPlaces: function setupPlaces() {
+            var self = this;
+
+            var placesAutocomplete = places({
+                container: document.querySelector('#c_address'),
+                type: 'address'
+            });
+
+            placesAutocomplete.on('change', function (e) {
+                return console.log(e.suggestion);
+            });
+
+            placesAutocomplete.on('change', function resultSelected(e) {
+                self.item.state = e.suggestion.administrative || '';
+                self.item.city = e.suggestion.city || '';
+                self.item.lat = e.suggestion.latlng.lat || '';
+                self.item.lon = e.suggestion.latlng.lng || '';
+                self.item.country = e.suggestion.country || '';
+                self.item.address = e.suggestion.value || '';
+            });
+        },
+
+        createHackathon: function createHackathon() {
             var self = this;
 
             axios.post('/api/hackathons', this.item).then(function (response) {
@@ -9774,6 +9864,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -9782,15 +9891,65 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 title: null,
                 description: null,
                 website: null,
-                ticket_url: null
+                meetup_url: null,
+                lat: null,
+                lon: null,
+                address: null,
+                city: null,
+                country: null,
+                state: null,
+                header_image: null
             }
         };
     },
-    mounted: function mounted() {},
+    mounted: function mounted() {
+        this.setupPlaces();
+    },
 
 
     methods: {
-        createConference: function createConference() {
+        onFileChange: function onFileChange(e) {
+            var files = e.target.files || e.dataTransfer.files;
+            if (!files.length) return;
+            this.createImage(files[0]);
+        },
+        createImage: function createImage(file) {
+            var self = this;
+
+            var image = new Image();
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                self.item.header_image = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        },
+
+
+        setupPlaces: function setupPlaces() {
+            var self = this;
+
+            var placesAutocomplete = places({
+                container: document.querySelector('#c_address'),
+                type: 'address'
+            });
+
+            placesAutocomplete.on('change', function (e) {
+                return console.log(e.suggestion);
+            });
+
+            placesAutocomplete.on('change', function resultSelected(e) {
+                self.item.state = e.suggestion.administrative || '';
+                self.item.city = e.suggestion.city || '';
+                self.item.lat = e.suggestion.latlng.lat || '';
+                self.item.lon = e.suggestion.latlng.lng || '';
+                self.item.country = e.suggestion.country || '';
+                self.item.address = e.suggestion.value || '';
+            });
+        },
+
+        createMeetup: function createMeetup() {
             var self = this;
 
             axios.post('/api/meetups', this.item).then(function (response) {
@@ -15145,7 +15304,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -15280,7 +15439,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -15310,7 +15469,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -58285,8 +58444,10 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
       _c("div", { staticClass: "form-group row" }, [
-        _vm._m(2),
+        _vm._m(3),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-12" }, [
           _c("input", {
@@ -58318,39 +58479,29 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group row" }, [
-        _vm._m(3),
+        _vm._m(4),
         _vm._v(" "),
-        _c("div", { staticClass: "col-sm-12" }, [
+        _c("div", { staticClass: "col-6" }, [
           _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.item.ticket_url,
-                expression: "item.ticket_url"
-              }
-            ],
             staticClass: "form-control",
-            attrs: {
-              type: "text",
-              id: "c_ticket_url",
-              placeholder: "https://tickets.laravents.com/h/my-hackathon"
-            },
-            domProps: { value: _vm.item.ticket_url },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.item, "ticket_url", $event.target.value)
-              }
-            }
+            attrs: { type: "file", id: "c_header_image" },
+            on: { change: _vm.onFileChange }
           })
         ])
       ])
     ]),
     _vm._v(" "),
-    _vm._m(4)
+    _c("div", { staticClass: "card-footer text-right" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "submit" },
+          on: { click: _vm.createHackathon }
+        },
+        [_vm._v("Submit Hackathon")]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -58381,6 +58532,29 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        { staticClass: "col-sm-2 col-form-label", attrs: { for: "c_name" } },
+        [_c("strong", [_vm._v("Address")])]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-12" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "search",
+            id: "c_address",
+            placeholder: "Where is your hackathon?"
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "label",
       { staticClass: "col-sm-2 col-form-label", attrs: { for: "c_website" } },
@@ -58395,22 +58569,10 @@ var staticRenderFns = [
       "label",
       {
         staticClass: "col-sm-2 col-form-label",
-        attrs: { for: "c_ticket_url" }
+        attrs: { for: "c_header_image" }
       },
-      [_c("strong", [_vm._v("Ticket-Website")])]
+      [_c("strong", [_vm._v("Image")])]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer text-right" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Submit Hackathon")]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -58778,14 +58940,9 @@ var render = function() {
             _vm._l(_vm.items, function(item) {
               return _c("div", { staticClass: "col-4" }, [
                 _c("div", { staticClass: "card" }, [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: { src: item.header_image, alt: item.title }
-                  }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "card-body" }, [
                     _c("h5", { staticClass: "card-title" }, [
-                      _c("a", { attrs: { href: "/c/" + item.id } }, [
+                      _c("a", { attrs: { href: "/h/" + item.slug } }, [
                         _vm._v(_vm._s(item.title))
                       ])
                     ]),
@@ -60124,10 +60281,32 @@ var render = function() {
             }
           })
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group row" }, [
+        _vm._m(5),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "file", id: "c_header_image" },
+            on: { change: _vm.onFileChange }
+          })
+        ])
       ])
     ]),
     _vm._v(" "),
-    _vm._m(5)
+    _c("div", { staticClass: "card-footer text-right" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "submit" },
+          on: { click: _vm.createConference }
+        },
+        [_vm._v("Submit Conference")]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -60204,13 +60383,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer text-right" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Submit Conference")]
-      )
-    ])
+    return _c(
+      "label",
+      {
+        staticClass: "col-sm-2 col-form-label",
+        attrs: { for: "c_header_image" }
+      },
+      [_c("strong", [_vm._v("Image")])]
+    )
   }
 ]
 render._withStripped = true
@@ -60676,8 +60856,10 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
       _c("div", { staticClass: "form-group row" }, [
-        _vm._m(2),
+        _vm._m(3),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-12" }, [
           _c("input", {
@@ -60709,7 +60891,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group row" }, [
-        _vm._m(3),
+        _vm._m(4),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-12" }, [
           _c("input", {
@@ -60717,31 +60899,53 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.item.ticket_url,
-                expression: "item.ticket_url"
+                value: _vm.item.meetup_url,
+                expression: "item.meetup_url"
               }
             ],
             staticClass: "form-control",
             attrs: {
               type: "text",
               id: "c_ticket_url",
-              placeholder: "https://tickets.laravents.com/m/my-meetup"
+              placeholder: "https://meetup.com/your-meetup"
             },
-            domProps: { value: _vm.item.ticket_url },
+            domProps: { value: _vm.item.meetup_url },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.item, "ticket_url", $event.target.value)
+                _vm.$set(_vm.item, "meetup_url", $event.target.value)
               }
             }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group row" }, [
+        _vm._m(5),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "file", id: "c_header_image" },
+            on: { change: _vm.onFileChange }
           })
         ])
       ])
     ]),
     _vm._v(" "),
-    _vm._m(4)
+    _c("div", { staticClass: "card-footer text-right" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "submit" },
+          on: { click: _vm.createMeetup }
+        },
+        [_vm._v("Submit Meetup")]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -60772,6 +60976,29 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        { staticClass: "col-sm-2 col-form-label", attrs: { for: "c_name" } },
+        [_c("strong", [_vm._v("Address")])]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-12" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "search",
+            id: "c_address",
+            placeholder: "Where is your meetup?"
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "label",
       { staticClass: "col-sm-2 col-form-label", attrs: { for: "c_website" } },
@@ -60788,20 +61015,21 @@ var staticRenderFns = [
         staticClass: "col-sm-2 col-form-label",
         attrs: { for: "c_ticket_url" }
       },
-      [_c("strong", [_vm._v("Ticket-Website")])]
+      [_c("strong", [_vm._v("Meetup URL")])]
     )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer text-right" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Submit Meetup")]
-      )
-    ])
+    return _c(
+      "label",
+      {
+        staticClass: "col-sm-2 col-form-label",
+        attrs: { for: "c_header_image" }
+      },
+      [_c("strong", [_vm._v("Image")])]
+    )
   }
 ]
 render._withStripped = true
@@ -60890,14 +61118,9 @@ var render = function() {
             _vm._l(_vm.items, function(item) {
               return _c("div", { staticClass: "col-4" }, [
                 _c("div", { staticClass: "card" }, [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: { src: item.header_image, alt: item.title }
-                  }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "card-body" }, [
                     _c("h5", { staticClass: "card-title" }, [
-                      _c("a", { attrs: { href: "/c/" + item.id } }, [
+                      _c("a", { attrs: { href: "/c/" + item.slug } }, [
                         _vm._v(_vm._s(item.title))
                       ])
                     ]),
@@ -61072,14 +61295,9 @@ var render = function() {
             _vm._l(_vm.items, function(item) {
               return _c("div", { staticClass: "col-4" }, [
                 _c("div", { staticClass: "card" }, [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: { src: item.header_image, alt: item.title }
-                  }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "card-body" }, [
                     _c("h5", { staticClass: "card-title" }, [
-                      _c("a", { attrs: { href: "/c/" + item.id } }, [
+                      _c("a", { attrs: { href: "/m/" + item.slug } }, [
                         _vm._v(_vm._s(item.title))
                       ])
                     ]),

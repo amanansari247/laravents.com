@@ -23,6 +23,15 @@ class CreateConferencesTable extends Migration
             $table->string('website')->nullable();
             $table->string('ticket_url')->nullable();
 
+            $table->string('header_image')->nullable();
+
+            $table->string('lat')->nullable();
+            $table->string('lon')->nullable();
+            $table->string('address')->nullable();
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+
             $table->longText('description');
 
             $table->softDeletes();

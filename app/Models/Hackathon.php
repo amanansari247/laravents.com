@@ -37,6 +37,9 @@ use Spatie\Sluggable\SlugOptions;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Hackathon withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Hackathon withoutTrashed()
  * @mixin \Eloquent
+ * @property string|null $slug
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Hackathon whereSlug($value)
  */
 class Hackathon extends Model
 {

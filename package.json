@@ -31,6 +31,7 @@
         "places.js": "^1.6.0",
         "pusher-js": "^4.2.2",
         "vue-instantsearch": "^1.5.2",
+        "vue-picture-input": "^2.1.5",
         "vue-places": "^1.1.0",
         "vue-router": "^3.0.1",
         "vue-truncate-filter": "^1.1.7"

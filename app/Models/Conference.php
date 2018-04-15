@@ -39,6 +39,11 @@ use Spatie\Sluggable\SlugOptions;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Conference withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Conference withoutTrashed()
  * @mixin \Eloquent
+ * @property string|null $slug
+ * @property string|null $header_image
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereHeaderImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereSlug($value)
  */
 class Conference extends Model
 {

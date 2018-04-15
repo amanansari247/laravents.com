@@ -28,3 +28,7 @@ Route::group(['prefix' => 'account', 'middleware' => 'auth'], function() {
     Route::get('/', 'Account\AccountController@getAccount');
     Route::get('/settings', 'Account\SettingsController@getSettings');
 });
+
+Route::post('/test', function() {
+    return request()->all();
+});
