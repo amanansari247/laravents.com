@@ -77,8 +77,8 @@ task('laravents.com:helloworld', 'echo "hello world!"');
 */
 
 // Npm 
-after('hook:build', 'npm:install');
-after('hook:build', 'npm:production');
+//after('hook:build', 'npm:install');
+//after('hook:build', 'npm:production');
 
 // Migrations
 after('hook:ready', 'artisan:migrate');
