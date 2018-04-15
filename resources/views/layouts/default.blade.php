@@ -13,6 +13,7 @@
     <!-- Prefetch -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://use.fontawesome.com/">
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
@@ -54,6 +55,8 @@
                 @include('_includes.navigation')
 
                 @yield('content')
+
+                @include('_includes.footer')
             </div>
         @endif
     </div>

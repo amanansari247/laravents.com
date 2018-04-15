@@ -30761,6 +30761,12 @@ svg {
   color: #e66c61;
 }
 
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 .team-block {
   margin-bottom: 20px;
 }
