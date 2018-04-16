@@ -20,6 +20,8 @@ Vue.component('passport-clients', require('./components/passport/Clients.vue'));
 Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue'));
 Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue'));
 
+Vue.component('nav-search', require('./components/NavSearch'));
+
 Vue.component('random-qoute', require('./components/RandomQuote'));
 Vue.component('sponsor-form', require('./components/SponsorForm'));
 Vue.component('notification-widget', require('./components/NotificationWidget'));

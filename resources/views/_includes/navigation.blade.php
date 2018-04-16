@@ -16,12 +16,13 @@
                         <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown" aria-expanded="false">
                             <img class="avatar" src="{{ Auth::user()->getGravatar() }}" alt="{{ Auth::user()->name }}">
                             <span class="ml-2 d-none d-lg-block">
-                          <span class="text-default">{{ Auth::user()->name }}</span>
-                          @if(Auth::user()->is_admin)
-                                    <small class="text-muted d-block mt-1">Administrator</small>
-                          @endif
-                        </span>
+                                <span class="text-default">{{ Auth::user()->name }}</span>
+                              @if(Auth::user()->is_admin)
+                                        <small class="text-muted d-block mt-1">Administrator</small>
+                              @endif
+                            </span>
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" x-placement="bottom-end" style="position: absolute; transform: translate3d(136px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
                             <a class="dropdown-item" href="{{ url('/account') }}">
                                 <i class="dropdown-icon fe fe-user"></i> Profile
@@ -64,12 +65,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-3 ml-auto">
-                <form class="input-icon my-3 my-lg-0">
-                    <input type="search" class="form-control header-search" placeholder="Search…" tabindex="1">
-                    <div class="input-icon-addon">
-                        <i class="fe fe-search"></i>
-                    </div>
-                </form>
+                {{--<nav-search></nav-search>--}}
             </div>
             <div class="col-lg order-lg-first">
                 <ul class="nav nav-tabs border-0 flex-column flex-lg-row">

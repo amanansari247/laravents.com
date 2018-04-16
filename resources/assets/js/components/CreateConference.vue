@@ -179,9 +179,6 @@
                     type: 'address'
                 });
 
-                placesAutocomplete.on('change', e => console.log(e.suggestion));
-
-
                 placesAutocomplete.on('change', function resultSelected(e) {
                     self.item.state = e.suggestion.administrative || '';
                     self.item.city = e.suggestion.city || '';
