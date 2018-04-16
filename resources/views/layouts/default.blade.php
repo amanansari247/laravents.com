@@ -83,32 +83,34 @@
         </script>
     @endif
 
-    @guest
-        <script>
-            var botmanWidget = {
-                chatServer: 'https://larvis.laravents.com/botman',
-                mainColor: '#e66c61',
-                bubbleBackground: '#e66c61',
-                title: 'Larvis',
-                desktopHeight: 600,
-                introMessage: 'Welcome to laravents.com! 👋 <br><br> I´m Larvis. Your personal 🤖 when it comes to any laravel related events on the 🌍. <br><br> Here´s a 📝 with commands, i understand: <br><br> - Show me conferences <br> - Show me meetups <br> - Show me hackathons',
-                placeholderText: 'Ask me about any events for laravel..',
-            };
-        </script>
-    @else
-        <script>
-            var botmanWidget = {
-                chatServer: 'https://larvis.laravents.com/botman',
-                mainColor: '#e66c61',
-                bubbleBackground: '#e66c61',
-                title: 'Larvis',
-                desktopHeight: 600,
-                introMessage: 'Hello, {!! Auth::user()->name !!}! 👋 <br><br> I´m Larvis. Your personal 🤖 when it comes to any laravel related events on the 🌍. <br><br> Here´s a 📝 with commands, i understand: <br><br> - Show me conferences <br> - Show me meetups <br> - Show me hackathons',
-                placeholderText: 'Ask me about any events for laravel..',
-                userId: {!! Auth::user()->id !!}
-            };
-        </script>
-    @endguest
-    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+    {{--@guest--}}
+        {{--<script>--}}
+            {{--var botmanWidget = {--}}
+                {{--chatServer: 'https://larvis.test/botman',--}}
+                {{--frameEndpoint: '/botman/chat',--}}
+                {{--mainColor: '#e66c61',--}}
+                {{--bubbleBackground: '#e66c61',--}}
+                {{--title: 'Larvis',--}}
+                {{--desktopHeight: 600,--}}
+                {{--introMessage: 'Welcome to laravents.com! 👋 <br><br> I´m Larvis. Your personal 🤖 when it comes to any laravel related events on the 🌍. <br><br> Here´s a 📝 with commands, i understand: <br><br> - Show me conferences <br> - Show me meetups <br> - Show me hackathons',--}}
+                {{--placeholderText: 'Ask me about any events for laravel..',--}}
+            {{--};--}}
+        {{--</script>--}}
+    {{--@else--}}
+        {{--<script>--}}
+            {{--var botmanWidget = {--}}
+                {{--chatServer: 'https://larvis.test/botman',--}}
+                {{--mainColor: '#e66c61',--}}
+                {{--frameEndpoint: '/botman/chat',--}}
+                {{--bubbleBackground: '#e66c61',--}}
+                {{--title: 'Larvis',--}}
+                {{--desktopHeight: 600,--}}
+                {{--introMessage: 'Hello, {!! Auth::user()->name !!}! 👋 <br><br> I´m Larvis. Your personal 🤖 when it comes to any laravel related events on the 🌍. <br><br> Here´s a 📝 with commands, i understand: <br><br> - Show me conferences <br> - Show me meetups <br> - Show me hackathons',--}}
+                {{--placeholderText: 'Ask me about any events for laravel..',--}}
+                {{--userId: {!! Auth::user()->id !!}--}}
+            {{--};--}}
+        {{--</script>--}}
+    {{--@endguest--}}
+    {{--<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>--}}
 </body>
 </html>

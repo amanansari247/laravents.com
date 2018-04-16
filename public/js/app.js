@@ -60961,6 +60961,65 @@ var render = function() {
               ])
             ])
           ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group row" }, [
+          _vm._m(8),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-12" }, [
+            _c("label", { staticClass: "custom-control custom-checkbox" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.live_stream,
+                    expression: "item.live_stream"
+                  }
+                ],
+                staticClass: "custom-control-input",
+                attrs: {
+                  type: "checkbox",
+                  id: "c_live_stream",
+                  value: "true",
+                  checked: ""
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.item.live_stream)
+                    ? _vm._i(_vm.item.live_stream, "true") > -1
+                    : _vm.item.live_stream
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.item.live_stream,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "true",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 &&
+                          _vm.$set(_vm.item, "live_stream", $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          _vm.$set(
+                            _vm.item,
+                            "live_stream",
+                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                          )
+                      }
+                    } else {
+                      _vm.$set(_vm.item, "live_stream", $$c)
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "custom-control-label" }, [
+                _vm._v("Yes")
+              ])
+            ])
+          ])
         ])
       ]),
       _vm._v(" "),
@@ -61086,6 +61145,30 @@ var staticRenderFns = [
         attrs: { for: "c_header_image" }
       },
       [_c("strong", [_vm._v("Image")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-sm-4 col-form-label",
+        attrs: { for: "c_live_stream" }
+      },
+      [
+        _c("strong", [
+          _vm._v("Has Live-Stream "),
+          _c("small", { staticClass: "text-muted" }, [
+            _vm._v("(Powered by "),
+            _c("a", { attrs: { href: "https://larastream.com" } }, [
+              _vm._v("LaraStream")
+            ]),
+            _vm._v(")")
+          ])
+        ])
+      ]
     )
   }
 ]
