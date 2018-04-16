@@ -47,14 +47,70 @@
             </div>
 
             <div class="form-group row">
+                <label for="c_start_date" class="col-sm-2 col-form-label">
+                    <strong>From</strong>
+                </label>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="text" id="c_start_date" class="form-control" data-mask="00/00/0000" data-mask-clearifnotmatch="true" placeholder="00/00/0000" autocomplete="off" maxlength="10" v-model="item.start_date">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <input type="text" id="c_start_time" class="form-control" data-mask="00:00:00" data-mask-clearifnotmatch="true" placeholder="00:00:00" autocomplete="off" maxlength="8" v-model="item.start_time">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="c_end_date" class="col-sm-2 col-form-label">
+                    <strong>To</strong>
+                </label>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="text" id="c_end_date" class="form-control" data-mask="00/00/0000" data-mask-clearifnotmatch="true" placeholder="00/00/0000" autocomplete="off" maxlength="10" v-model="item.end_date">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <input type="text" id="c_end_time" class="form-control" data-mask="00:00:00" data-mask-clearifnotmatch="true" placeholder="00:00:00" autocomplete="off" maxlength="8" v-model="item.end_time">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
                 <label for="c_header_image" class="col-sm-2 col-form-label">
                     <strong>Image</strong>
                 </label>
 
-                <div class="col-6">
-                    <input type="file" class="form-control" id="c_header_image" v-on:change="onFileChange">
+                <div class="col-sm-12">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="c_header_image" v-on:change="onFileChange">
+                        <label class="custom-file-label">Choose Image</label>
+                    </div>
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label for="c_live_stream" class="col-sm-2 col-form-label">
+                    <strong>Has Live-Stream</strong>
+                </label>
+
+                <div class="col-sm-12">
+                    <label class="custom-control custom-checkbox">
+                        <input type="checkbox" id="c_live_stream" class="custom-control-input" value="true" checked="" v-model="item.live_stream">
+                        <span class="custom-control-label">Yes</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body" v-if="item.live_stream">
+            <create-live></create-live>
         </div>
 
         <div class="card-footer text-right">
@@ -78,7 +134,12 @@
                     city: null,
                     country: null,
                     state: null,
-                    header_image: null
+                    header_image: null,
+                    start_date: null,
+                    start_time: null,
+                    end_date: null,
+                    end_time: null,
+                    live_stream: false
                 }
             }
         },

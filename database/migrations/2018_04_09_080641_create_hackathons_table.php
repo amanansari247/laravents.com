@@ -33,6 +33,9 @@ class CreateHackathonsTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
 
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+
             $table->softDeletes();
             $table->timestamps();
         });

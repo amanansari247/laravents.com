@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Events;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ConferenceResource;
 use App\Models\Conference;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -58,6 +59,14 @@ class ConferenceController extends Controller
             'country' => $request->get('country'),
             'city' => $request->get('city'),
             'state' => $request->get('state'),
+            'start_date' => Carbon::parse(vsprintf('%s %s', [
+                $request->get('start_date'),
+                $request->get('start_time'),
+            ])),
+            'end_date' => Carbon::parse(vsprintf('%s %s', [
+                $request->get('end_date'),
+                $request->get('end_time'),
+            ])),
         ]);
 
         return ConferenceResource::make($conference);

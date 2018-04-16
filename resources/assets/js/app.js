@@ -31,6 +31,7 @@ Vue.component('hackathon-list', require('./components/Hackathons'));
 Vue.component('conference-list', require('./components/Conferences'));
 
 Vue.component('create-event', require('./components/CreateEvent'));
+Vue.component('create-live', require('./components/CreateLive'));
 
 Vue.component('create-conference', require('./components/CreateConference'));
 Vue.component('create-meetup', require('./components/CreateMeetup'));

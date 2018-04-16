@@ -34,6 +34,9 @@ class CreateConferencesTable extends Migration
 
             $table->longText('description');
 
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+
             $table->softDeletes();
             $table->timestamps();
         });
