@@ -21,6 +21,7 @@
                 </div>
                 <form class="card" action="{{ route('register') }}" method="post">
                     @csrf
+                    {!! app('captcha')->render(); !!}
                     <div class="card-body p-6">
                         <div class="card-title">{{ __('Register') }}</div>
                         <div class="form-group">
@@ -60,6 +61,8 @@
 
                         <div class="form-footer">
                             <button type="submit" class="btn btn-primary btn-block">{{ __('Register') }}</button>
+                            <br>
+                            <a href="{{ url('/auth/social/github') }}" class="btn btn-dark btn-block"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </form>

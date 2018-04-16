@@ -28,16 +28,16 @@
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
+    @stack('header_scripts')
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 
-
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-
+    @stack('header_styles')
 
     <script>
         window.Laravents = <?php echo json_encode(array_merge(
@@ -63,6 +63,8 @@
             <div class="page-main">
                 @include('_includes.navigation')
 
+                @include('alert::bootstrap')
+
                 @yield('content')
 
                 @include('_includes.footer')
@@ -80,5 +82,33 @@
             gtag('config', '{!! env('GA_KEY') !!}');
         </script>
     @endif
+
+    @guest
+        <script>
+            var botmanWidget = {
+                chatServer: 'https://testbot.test/botman',
+                mainColor: '#e66c61',
+                bubbleBackground: '#e66c61',
+                title: 'Larvis',
+                desktopHeight: 600,
+                introMessage: 'Welcome to laravents.com! 👋 <br><br> I´m Larvis. Your personal 🤖 when it comes to any laravel related events on the 🌍. <br><br> Here´s a 📝 with commands, i understand: <br><br> - Show me conferences <br> - Show me meetups <br> - Show me hackathons',
+                placeholderText: 'Ask me about any events for laravel..',
+            };
+        </script>
+    @else
+        <script>
+            var botmanWidget = {
+                chatServer: 'https://testbot.test/botman',
+                mainColor: '#e66c61',
+                bubbleBackground: '#e66c61',
+                title: 'Larvis',
+                desktopHeight: 600,
+                introMessage: 'Hello, {!! Auth::user()->name !!}! 👋 <br><br> I´m Larvis. Your personal 🤖 when it comes to any laravel related events on the 🌍. <br><br> Here´s a 📝 with commands, i understand: <br><br> - Show me conferences <br> - Show me meetups <br> - Show me hackathons',
+                placeholderText: 'Ask me about any events for laravel..',
+                userId: {!! Auth::user()->id !!}
+            };
+        </script>
+    @endguest
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 </body>
 </html>

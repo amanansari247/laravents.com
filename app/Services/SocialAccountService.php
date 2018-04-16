@@ -29,6 +29,14 @@ class SocialAccountService
                 'provider' => $providerName
             ]);
 
+            if (! $providerUser->getEmail()) {
+                alert()->error("You´ll need to provide your email address using your $providerName account");
+            }
+
+            if (! $providerUser->getName()) {
+                alert()->error("You´ll need to provide your name using your $providerName account");
+            }
+
             $user = User::whereEmail($providerUser->getEmail())->first();
 
             if (!$user) {
@@ -39,10 +47,6 @@ class SocialAccountService
                 ]);
             }
 
-            $account->user()->associate($user);
-            $account->save();
-
-            $user->assignRole('User');
 
             return $user;
         }

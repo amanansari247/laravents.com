@@ -54,6 +54,8 @@
                         </div>
                         <div class="form-footer">
                             <button type="submit" class="btn btn-primary btn-block">{{ __('Login') }}</button>
+                            <br>
+                            <a href="{{ url('/auth/social/github') }}" class="btn btn-dark btn-block"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </form>
