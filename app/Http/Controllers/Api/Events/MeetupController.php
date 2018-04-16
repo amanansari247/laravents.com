@@ -43,7 +43,6 @@ class MeetupController extends Controller
             Storage::disk('public')->put($file_name, base64_decode($file_data));
 
             $img = Image::make('storage/' . $file_name);
-//            $img->crop(100, 100, 25, 25);
         }
 
         $meetup = Meetup::create([
@@ -68,6 +67,9 @@ class MeetupController extends Controller
                 $request->get('end_time'),
             ])),
         ]);
+
+        if ($request->has('live_stream')) {
+        }
 
         return MeetupResource::make($meetup);
     }

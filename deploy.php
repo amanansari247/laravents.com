@@ -9,8 +9,8 @@ require 'recipe/laravel-deployer.php';
 | Define your options
 |--------------------------------------------------------------------------
 |
-| Here, you can edit the name of your application, change your repository URL, 
-| customize which files and folders should be shared between releases, 
+| Here, you can edit the name of your application, change your repository URL,
+| customize which files and folders should be shared between releases,
 | customize which directories should be writable and much more.
 |
 */
@@ -28,7 +28,7 @@ add('writable_dirs', []);
 |--------------------------------------------------------------------------
 |
 | This is what Deployer will use to connect to your servers. You can set up
-| multiple hosts including localhosts to enable deployment directly from 
+| multiple hosts including localhosts to enable deployment directly from
 | the server (useful if you are using Laravel Forge for example).
 |
 */
@@ -64,11 +64,11 @@ task('laravents.com:helloworld', 'echo "hello world!"');
 | Add more to your deployments with hooks
 |--------------------------------------------------------------------------
 |
-| Hooks enable you to attach new tasks before or after the execution of other 
+| Hooks enable you to attach new tasks before or after the execution of other
 | tasks. Run `php artisan deploy:dump deploy` to checkout where to hook on
 | the deployment flow. To redefine the deployment process entirely, you
 | may directly override the `deploy` task - check out documentation.
-| 
+|
 | The following shallow hooks are made available to faciliate this process:
 | - hook:build    Code and composer vendors are ready but nothing is built
 | - hook:ready    Deployment is done but not live yet (before symlink)
@@ -76,7 +76,7 @@ task('laravents.com:helloworld', 'echo "hello world!"');
 |
 */
 
-// Npm 
+// Npm
 //after('hook:build', 'npm:install');
 //after('hook:build', 'npm:production');
 
@@ -86,6 +86,6 @@ after('hook:ready', 'artisan:migrate');
 // Horizon
 after('hook:ready', 'artisan:horizon:terminate');
 
-// Reload php-fpm 
+// Reload php-fpm
 set('php_fpm_service', 'php7.2-fpm');
 after('hook:done', 'fpm:reload');

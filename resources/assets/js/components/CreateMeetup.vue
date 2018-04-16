@@ -95,18 +95,18 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label for="c_live_stream" class="col-sm-2 col-form-label">
-                    <strong>Has Live-Stream</strong>
-                </label>
+            <!--<div class="form-group row">-->
+                <!--<label for="c_live_stream" class="col-sm-4 col-form-label">-->
+                    <!--<strong>Has Live-Stream <small class="text-muted">(Powered by <a href="https://larastream.com">LaraStream</a>)</small></strong>-->
+                <!--</label>-->
 
-                <div class="col-sm-12">
-                    <label class="custom-control custom-checkbox">
-                        <input type="checkbox" id="c_live_stream" class="custom-control-input" value="true" checked="" v-model="item.live_stream">
-                        <span class="custom-control-label">Yes</span>
-                    </label>
-                </div>
-            </div>
+                <!--<div class="col-sm-12">-->
+                    <!--<label class="custom-control custom-checkbox">-->
+                        <!--<input type="checkbox" id="c_live_stream" class="custom-control-input" value="true" checked="" v-model="item.live_stream">-->
+                        <!--<span class="custom-control-label">Yes</span>-->
+                    <!--</label>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
 
         <div class="card-body" v-if="item.live_stream">

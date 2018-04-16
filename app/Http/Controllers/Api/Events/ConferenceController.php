@@ -43,7 +43,6 @@ class ConferenceController extends Controller
             Storage::disk('public')->put($file_name, base64_decode($file_data));
 
             $img = Image::make('storage/' . $file_name);
-//
         }
 
         $conference = Conference::create([
@@ -68,6 +67,9 @@ class ConferenceController extends Controller
                 $request->get('end_time'),
             ])),
         ]);
+
+        if ($request->has('live_stream')) {
+        }
 
         return ConferenceResource::make($conference);
     }

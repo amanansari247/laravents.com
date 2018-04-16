@@ -43,7 +43,6 @@ class HackathonController extends Controller
             Storage::disk('public')->put($file_name, base64_decode($file_data));
 
             $img = Image::make('storage/' . $file_name);
-//            $img->crop(100, 100, 25, 25);
         }
 
         $hackathon = Hackathon::create([
@@ -67,6 +66,9 @@ class HackathonController extends Controller
                 $request->get('end_time'),
             ])),
         ]);
+
+        if ($request->has('live_stream')) {
+        }
 
         return HackathonResource::make($hackathon);
     }
