@@ -52,7 +52,7 @@ class WelcomeNotification extends Notification implements ShouldQueue
                     ->greeting('Hi, ' . $this->user->name . '!')
                     ->line('Thank you for signing up to ' . config('app.name') . '.')
                     ->line('You can now join or submit events all over the world on ' . config('app.name') . '.')
-                    ->action('Submit your own event!', url('/events/submit'))
+                    ->action('Submit your own event!', url('/events/create'))
                     ->line('Thank you for using ' . config('app.name') . '!');
     }
 
