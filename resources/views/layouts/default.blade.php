@@ -86,7 +86,7 @@
     @guest
         <script>
             var botmanWidget = {
-                chatServer: 'https://testbot.test/botman',
+                chatServer: 'https://larvis.laravents.com/botman',
                 mainColor: '#e66c61',
                 bubbleBackground: '#e66c61',
                 title: 'Larvis',
@@ -98,7 +98,7 @@
     @else
         <script>
             var botmanWidget = {
-                chatServer: 'https://testbot.test/botman',
+                chatServer: 'https://larvis.laravents.com/botman',
                 mainColor: '#e66c61',
                 bubbleBackground: '#e66c61',
                 title: 'Larvis',

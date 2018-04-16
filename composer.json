@@ -9,8 +9,6 @@
         "albertcht/invisible-recaptcha": "^1.8",
         "algolia/algoliasearch-client-php": "^1.25",
         "botman/botman": "^2.3",
-        "botman/driver-telegram": "^1.5",
-        "botman/driver-web": "^1.5",
         "doctrine/dbal": "^2.7",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.4",
