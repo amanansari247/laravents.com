@@ -46,7 +46,7 @@ class HackathonController extends Controller
         }
 
         $hackathon = Hackathon::create([
-            'user_id' => 1,
+            'user_id' => $request->user()->id,
             'title' => $request->get('title'),
             'website' => $request->get('website'),
             'description' => $request->get('description'),

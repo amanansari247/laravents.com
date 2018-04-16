@@ -55,11 +55,11 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-6">
-                                <input type="text" id="c_start_date" class="form-control" data-mask="00/00/0000" data-mask-clearifnotmatch="true" placeholder="00/00/0000" autocomplete="off" maxlength="10" v-model="item.start_date">
+                                <input type="text" id="c_start_date" class="form-control" data-mask="00/00/0000" data-mask-clearifnotmatch="true" placeholder="00/00/0000" autocomplete="off" maxlength="10" v-model="item.start_date" required>
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text" id="c_start_time" class="form-control" data-mask="00:00:00" data-mask-clearifnotmatch="true" placeholder="00:00:00" autocomplete="off" maxlength="8" v-model="item.start_time">
+                                <input type="text" id="c_start_time" class="form-control" data-mask="00:00:00" data-mask-clearifnotmatch="true" placeholder="00:00:00" autocomplete="off" maxlength="8" v-model="item.start_time" required>
                             </div>
                         </div>
                     </div>
@@ -73,11 +73,11 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-6">
-                                <input type="text" id="c_end_date" class="form-control" data-mask="00/00/0000" data-mask-clearifnotmatch="true" placeholder="00/00/0000" autocomplete="off" maxlength="10" v-model="item.end_date">
+                                <input type="text" id="c_end_date" class="form-control" data-mask="00/00/0000" data-mask-clearifnotmatch="true" placeholder="00/00/0000" autocomplete="off" maxlength="10" v-model="item.end_date" required>
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text" id="c_end_time" class="form-control" data-mask="00:00:00" data-mask-clearifnotmatch="true" placeholder="00:00:00" autocomplete="off" maxlength="8" v-model="item.end_time">
+                                <input type="text" id="c_end_time" class="form-control" data-mask="00:00:00" data-mask-clearifnotmatch="true" placeholder="00:00:00" autocomplete="off" maxlength="8" v-model="item.end_time" required>
                             </div>
                         </div>
                     </div>

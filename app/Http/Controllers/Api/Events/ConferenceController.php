@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Events;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Conferences\CreateRequest;
 use App\Http\Resources\ConferenceResource;
 use App\Models\Conference;
 use Carbon\Carbon;
@@ -29,10 +30,10 @@ class ConferenceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param CreateRequest $request
      * @return ConferenceResource|\Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         $file_data = $request->input('header_image');
         $file_name = 'image_'.time().'.png';
@@ -46,7 +47,7 @@ class ConferenceController extends Controller
         }
 
         $conference = Conference::create([
-            'user_id' => 1,
+            'user_id' => $request->user()->id,
             'title' => $request->get('title'),
             'website' => $request->get('website'),
             'ticket_url' => $request->get('ticket_url'),
