@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Conferences\CreateRequest;
 use App\Http\Resources\ConferenceResource;
 use App\Models\Conference;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -47,12 +48,12 @@ class ConferenceController extends Controller
         }
 
         $conference = Conference::create([
-            'user_id' => $request->user()->id,
+            'user_id' => 1,
             'title' => $request->get('title'),
             'website' => $request->get('website'),
             'ticket_url' => $request->get('ticket_url'),
             'description' => $request->get('description'),
-            'header_image' => 'storage/' . $file_name,
+            'header_image' => url('/') . 'storage/' . $file_name,
             'lat' => $request->get('lat'),
             'lon' => $request->get('lon'),
             'address' => $request->get('address'),
@@ -79,11 +80,11 @@ class ConferenceController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Conference  $conference
-     * @return \Illuminate\Http\Response
+     * @return ConferenceResource|\Illuminate\Http\Response
      */
     public function show(Conference $conference)
     {
-        //
+        return ConferenceResource::make($conference);
     }
 
     /**

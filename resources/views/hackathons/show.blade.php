@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('page_title')
-    {{ $conference->title }}
+    {{ $hackathon->title }}
 @endsection
 
 @push('styles')
@@ -13,19 +13,7 @@
 @endpush
 
 @section('content')
-    <main class="py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-
-                </div>
-
-                <div class="col-9">
-
-                </div>
-            </div>
-        </div>
-    </main>
+    <single-hacakathon :hackathonid="{{ $hackathon->id }}"></single-hacakathon>
 @endsection
 
 @push('footer_scripts')

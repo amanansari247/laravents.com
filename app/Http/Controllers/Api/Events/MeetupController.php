@@ -51,7 +51,7 @@ class MeetupController extends Controller
             'website' => $request->get('website'),
             'meetup_url' => $request->get('meetup_url'),
             'description' => $request->get('description'),
-            'header_image' => 'storage/' . $file_name,
+            'header_image' => url('/') . 'storage/' . $file_name,
             'lat' => $request->get('lat'),
             'lon' => $request->get('lon'),
             'address' => $request->get('address'),
@@ -78,11 +78,11 @@ class MeetupController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Meetup  $meetup
-     * @return \Illuminate\Http\Response
+     * @return MeetupResource|\Illuminate\Http\Response
      */
     public function show(Meetup $meetup)
     {
-        //
+        return MeetupResource::make($meetup);
     }
 
     /**

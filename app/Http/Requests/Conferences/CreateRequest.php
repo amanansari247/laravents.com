@@ -28,7 +28,9 @@ class CreateRequest extends FormRequest
             'website' => 'required|url',
             'description' => 'required|string',
             'ticket_url' => 'sometimes|url',
-            'header_image' => 'required|image',
+            'header_image' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
         ];
     }
 }

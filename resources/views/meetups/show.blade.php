@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('page_title')
-    {{ $conference->title }}
+    {{ $meetup->title }}
 @endsection
 
 @push('styles')
@@ -13,19 +13,7 @@
 @endpush
 
 @section('content')
-    <main class="py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-
-                </div>
-
-                <div class="col-9">
-
-                </div>
-            </div>
-        </div>
-    </main>
+    <single-meetup :meetupid="{{ $meetup->id }}"></single-meetup>
 @endsection
 
 @push('footer_scripts')

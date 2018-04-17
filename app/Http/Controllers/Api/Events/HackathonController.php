@@ -50,7 +50,7 @@ class HackathonController extends Controller
             'title' => $request->get('title'),
             'website' => $request->get('website'),
             'description' => $request->get('description'),
-            'header_image' => 'storage/' . $file_name,
+            'header_image' => url('/') . 'storage/' . $file_name,
             'lat' => $request->get('lat'),
             'lon' => $request->get('lon'),
             'address' => $request->get('address'),
@@ -77,11 +77,11 @@ class HackathonController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Hackathon  $hackathon
-     * @return \Illuminate\Http\Response
+     * @return HackathonResource|\Illuminate\Http\Response
      */
     public function show(Hackathon $hackathon)
     {
-        //
+        return HackathonResource::make($hackathon);
     }
 
     /**

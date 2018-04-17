@@ -13,19 +13,7 @@
 @endpush
 
 @section('content')
-    <main class="py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-
-                </div>
-
-                <div class="col-9">
-
-                </div>
-            </div>
-        </div>
-    </main>
+    <single-conference :conferenceid="{{ $conference->id }}"></single-conference>
 @endsection
 
 @push('footer_scripts')
