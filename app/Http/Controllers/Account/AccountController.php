@@ -8,6 +8,7 @@ class AccountController extends Controller
 {
     public function getAccount()
     {
-        return view('account.profile.index');
+//        return view('account.profile.index');
+        return view('placeholders.coming_soon');
     }
 }

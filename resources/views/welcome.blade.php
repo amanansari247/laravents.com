@@ -33,28 +33,41 @@
         </div>
     </div>
 
+    <div class="container text-center">
+        <div class="alert alert-warning" role="alert">
+            <strong>Please note:</strong> This site is still in development. Some features are not implemented yet. <br>
+            Feel free to <a href="https://github.com/laravents/laravents.com">contribute</a> to Laravents.com!
+        </div>
+    </div>
+
     <main class="py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="text-center">Recent Conferences</h3>
-                    <conference-list :per_page="3" :with_pagination="false"></conference-list>
+            @if(\App\Models\Conference::count())
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="text-center">Recent Conferences</h3>
+                        <conference-list :per_page="3" :with_pagination="false"></conference-list>
+                    </div>
                 </div>
-            </div>
+            @endif
 
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="text-center">Recent Meetups</h3>
-                    <meetup-list :per_page="3" :with_pagination="false"></meetup-list>
-                </div>
-            </div>
+            @if(\App\Models\Meetup::count())
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="text-center">Recent Meetups</h3>
+                            <meetup-list :per_page="3" :with_pagination="false"></meetup-list>
+                        </div>
+                    </div>
+            @endif
 
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="text-center">Recent Hackathons</h3>
-                    <hackathon-list :per_page="3" :with_pagination="false"></hackathon-list>
-                </div>
-            </div>
+            @if(\App\Models\Hackathon::count())
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="text-center">Recent Hackathons</h3>
+                            <hackathon-list :per_page="3" :with_pagination="false"></hackathon-list>
+                        </div>
+                    </div>
+                @endif
         </div>
     </main>
 @endsection

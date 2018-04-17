@@ -5,26 +5,29 @@
                 <div class="row">
                     <div class="col-6 col-md-3">
                         <ul class="list-unstyled mb-0">
-                            <li><a href="#">First link</a></li>
-                            <li><a href="#">Second link</a></li>
+                            <li><a href="{{ url('/c') }}">Conferences</a></li>
+                            <li><a href="{{ url('/m') }}">Meetups</a></li>
                         </ul>
                     </div>
+
                     <div class="col-6 col-md-3">
                         <ul class="list-unstyled mb-0">
-                            <li><a href="#">Third link</a></li>
-                            <li><a href="#">Fourth link</a></li>
+                            <li><a href="{{ url('/h') }}">Hackathons</a></li>
+                            <li><a href="{{ url('/s') }}">Sponsors</a></li>
                         </ul>
                     </div>
+
                     <div class="col-6 col-md-3">
                         <ul class="list-unstyled mb-0">
-                            <li><a href="#">Fifth link</a></li>
-                            <li><a href="#">Sixth link</a></li>
+                            <li><a href="https://tickets.laravents.com">Tickets</a></li>
+                            <li><a href="https://larvis.laravents.com">Larvis</a></li>
                         </ul>
                     </div>
+
                     <div class="col-6 col-md-3">
                         <ul class="list-unstyled mb-0">
-                            <li><a href="#">Other link</a></li>
-                            <li><a href="#">Last link</a></li>
+                            <li><a href="https://twitter.com/laraventscom">Twitter</a></li>
+                            <li><a href="https://github.com/laravents">GitHub</a></li>
                         </ul>
                     </div>
                 </div>
@@ -43,8 +46,8 @@
                 <div class="row align-items-center">
                     <div class="col-auto">
                         <ul class="list-inline list-inline-dots mb-0">
-                            <li class="list-inline-item"><a href="./docs/index.html">Documentation</a></li>
-                            <li class="list-inline-item"><a href="./faq.html">FAQ</a></li>
+                            <li class="list-inline-item"><a href="{{ url('/imprint') }}">Imprint</a></li>
+                            <li class="list-inline-item"><a href="{{ url('/privacy') }}">Privacy</a></li>
                         </ul>
                     </div>
                     <div class="col-auto">
