@@ -1,5 +1,20 @@
 <template>
     <div class="my-3 my-md-5">
+        <div class="map-header">
+            <div class="map-header-layer text-center" id="map-background" style="position: relative; overflow: hidden;">
+                <gmap-map
+                        :center="{lat: Number(item.lat), lng: Number(item.lon)}"
+                        :zoom="15"
+                        :draggable="false"
+                        map-type-id="terrain"
+                        style="width: 100%; height: 240px"
+                >
+                    <gmap-marker
+                            :position="{lat: Number(item.lat), lng: Number(item.lon)}"
+                    ></gmap-marker>
+                </gmap-map>
+            </div>
+        </div>
         <div class="container">
             <div class="row row-cards">
                 <div class="col-lg-4 col-md-6">
@@ -14,17 +29,7 @@
                         </div>
 
                         <div class="card-map card-map-placeholder">
-                            <gmap-map
-                                    :center="{lat: Number(item.lat), lng: Number(item.lon)}"
-                                    :zoom="15"
-                                    :draggable="false"
-                                    map-type-id="terrain"
-                                    style="width: 374px; height: 240px"
-                            >
-                                <gmap-marker
-                                        :position="{lat: Number(item.lat), lng: Number(item.lon)}"
-                                ></gmap-marker>
-                            </gmap-map>
+                            <img v-bind:src="item.header_image" v-bind:alt="item.title" class="img">
                         </div>
 
                         <div class="card-body">
@@ -103,7 +108,7 @@
                             <h3 class="card-title">About {{ item.title }}</h3>
                         </div>
                         <div class="card-body">
-                            {{ item.description }}
+                            <vue-markdown :source="item.description"></vue-markdown>
                         </div>
                     </div>
                 </div>
@@ -113,7 +118,12 @@
 </template>
 
 <script>
+    import VueMarkdown from 'vue-markdown';
     export default {
+        components: {
+            VueMarkdown
+        },
+
         props: [
             'conferenceid'
         ],

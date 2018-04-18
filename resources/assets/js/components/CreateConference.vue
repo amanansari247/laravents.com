@@ -16,7 +16,7 @@
                         <strong>Description</strong>
                     </label>
                     <div class="col-sm-12">
-                        <textarea id="c_description" class="form-control" placeholder="Maecenas sed diam eget risus varius blandit sit amet non magna. Sed posuere consectetur est at lobortis." v-model="item.description"></textarea>
+                        <textarea id="c_description" class="form-control" placeholder="Markdown supported." rows="5" v-model="item.description"></textarea>
                     </div>
                 </div>
 

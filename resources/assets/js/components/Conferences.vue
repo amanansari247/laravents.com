@@ -4,7 +4,9 @@
             <div class="row">
                 <div class="col-4" v-for="item in items">
                     <div class="card">
-                        <!--<img v-bind:src="item.header_image" style="max-height: 200px;" v-bind:alt="item.title" class="card-img-top img-fluid">-->
+                        <div class="card-map card-map-placeholder">
+                            <img v-bind:src="item.header_image" v-bind:alt="item.title" class="img">
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a v-bind:href="'/c/' + item.slug">{{ item.title }}</a>

@@ -103,7 +103,7 @@
                             <h3 class="card-title">About {{ item.title }}</h3>
                         </div>
                         <div class="card-body">
-                            {{ item.description }}
+                            <vue-markdown :source="item.description"></vue-markdown>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,12 @@
 </template>
 
 <script>
+    import VueMarkdown from 'vue-markdown';
     export default {
+        components: {
+            VueMarkdown
+        },
+
         props: [
             'meetupid'
         ],
