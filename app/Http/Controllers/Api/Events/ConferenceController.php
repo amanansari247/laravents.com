@@ -23,7 +23,9 @@ class ConferenceController extends Controller
     public function index(Request $request)
     {
         $perPage = $request->query('perPage');
-        $conferences = (new Conference)->whereIsApproved(true)->orderByDesc('created_at')->paginate($perPage);
+        $conferences = (new Conference)
+            ->orderByDesc('created_at')
+            ->paginate($perPage);
 
         return ConferenceResource::collection($conferences);
     }

@@ -23,7 +23,9 @@ class MeetupController extends Controller
     public function index(Request $request)
     {
         $perPage = $request->query('perPage');
-        $meetups = (new Meetup)->whereIsApproved(true)->orderByDesc('created_at')->paginate($perPage);
+        $meetups = (new Meetup)
+            ->orderByDesc('created_at')
+            ->paginate($perPage);
 
         return MeetupResource::collection($meetups);
     }

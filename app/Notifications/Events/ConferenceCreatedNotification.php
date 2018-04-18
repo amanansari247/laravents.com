@@ -45,7 +45,7 @@ class ConferenceCreatedNotification extends Notification implements ShouldQueue
     public function toTwitter()
     {
         $item = $this->conference;
-        $message = "New Conference: $item->name \n" . url('/c/' . $item->slug) ;
+        $message = "New Conference: $item->title \n" . url('/c/' . $item->slug) ;
         return (new TwitterStatusUpdate($message));
     }
 

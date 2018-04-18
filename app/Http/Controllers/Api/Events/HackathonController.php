@@ -23,7 +23,9 @@ class HackathonController extends Controller
     public function index(Request $request)
     {
         $perPage = $request->query('perPage');
-        $hackathons = (new Hackathon)->whereIsApproved(true)->orderByDesc('created_at')->paginate($perPage);
+        $hackathons = (new Hackathon)
+            ->orderByDesc('created_at')
+            ->paginate($perPage);
 
         return HackathonResource::collection($hackathons);
     }
