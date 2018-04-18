@@ -44,6 +44,22 @@ use Spatie\Sluggable\SlugOptions;
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereHeaderImage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereSlug($value)
+ * @property string|null $lat
+ * @property string|null $lon
+ * @property string|null $address
+ * @property string|null $country
+ * @property string|null $city
+ * @property string|null $state
+ * @property string $start_date
+ * @property string $end_date
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereEndDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereLat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereLon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereStartDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Conference whereState($value)
  */
 class Conference extends Model
 {

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Conferences\CreateRequest;
 use App\Http\Resources\ConferenceResource;
 use App\Models\Conference;
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -36,24 +35,13 @@ class ConferenceController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $file_data = $request->input('header_image');
-        $file_name = 'image_'.time().'.png';
-        @list($type, $file_data) = explode(';', $file_data);
-        @list(, $file_data) = explode(',', $file_data);
-
-        if ($file_data!="") {
-            Storage::disk('public')->put($file_name, base64_decode($file_data));
-
-            $img = Image::make('storage/' . $file_name);
-        }
-
         $conference = Conference::create([
             'user_id' => 1,
             'title' => $request->get('title'),
             'website' => $request->get('website'),
             'ticket_url' => $request->get('ticket_url'),
             'description' => $request->get('description'),
-            'header_image' => url('/') . 'storage/' . $file_name,
+            'header_image' => $this->createImageFromBase64($request),
             'lat' => $request->get('lat'),
             'lon' => $request->get('lon'),
             'address' => $request->get('address'),
@@ -110,7 +98,23 @@ class ConferenceController extends Controller
         //
     }
 
+    /**
+     * @param Request $request
+     * @return string
+     */
     public function createImageFromBase64(Request $request)
     {
+        $file_data = $request->input('header_image');
+        $file_name = 'image_'.time().'.png';
+        @list($type, $file_data) = explode(';', $file_data);
+        @list(, $file_data) = explode(',', $file_data);
+
+        if ($file_data!="") {
+            Storage::disk('public')->put($file_name, base64_decode($file_data));
+
+            $img = Image::make('storage/' . $file_name);
+
+            return url('/') . 'storage/' . $file_name;
+        }
     }
 }

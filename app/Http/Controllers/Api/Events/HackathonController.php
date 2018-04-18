@@ -34,23 +34,12 @@ class HackathonController extends Controller
      */
     public function store(Request $request)
     {
-        $file_data = $request->input('header_image');
-        $file_name = 'image_'.time().'.png';
-        @list($type, $file_data) = explode(';', $file_data);
-        @list(, $file_data) = explode(',', $file_data);
-
-        if ($file_data!="") {
-            Storage::disk('public')->put($file_name, base64_decode($file_data));
-
-            $img = Image::make('storage/' . $file_name);
-        }
-
         $hackathon = Hackathon::create([
             'user_id' => $request->user()->id,
             'title' => $request->get('title'),
             'website' => $request->get('website'),
             'description' => $request->get('description'),
-            'header_image' => url('/') . 'storage/' . $file_name,
+            'header_image' => $this->createImageFromBase64($request),
             'lat' => $request->get('lat'),
             'lon' => $request->get('lon'),
             'address' => $request->get('address'),
@@ -105,5 +94,25 @@ class HackathonController extends Controller
     public function destroy(Hackathon $hackathon)
     {
         //
+    }
+
+    /**
+     * @param Request $request
+     * @return string
+     */
+    public function createImageFromBase64(Request $request)
+    {
+        $file_data = $request->input('header_image');
+        $file_name = 'image_'.time().'.png';
+        @list($type, $file_data) = explode(';', $file_data);
+        @list(, $file_data) = explode(',', $file_data);
+
+        if ($file_data!="") {
+            Storage::disk('public')->put($file_name, base64_decode($file_data));
+
+            $img = Image::make('storage/' . $file_name);
+
+            return url('/') . 'storage/' . $file_name;
+        }
     }
 }

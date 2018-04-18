@@ -42,6 +42,24 @@ use Spatie\Sluggable\SlugOptions;
  * @property string|null $slug
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereSlug($value)
+ * @property string|null $header_image
+ * @property string|null $lat
+ * @property string|null $lon
+ * @property string|null $address
+ * @property string|null $country
+ * @property string|null $city
+ * @property string|null $state
+ * @property string $start_date
+ * @property string $end_date
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereEndDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereHeaderImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereLat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereLon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereStartDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereState($value)
  */
 class Meetup extends Model
 {

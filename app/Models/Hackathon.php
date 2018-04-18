@@ -40,6 +40,24 @@ use Spatie\Sluggable\SlugOptions;
  * @property string|null $slug
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Hackathon whereSlug($value)
+ * @property string|null $header_image
+ * @property string|null $lat
+ * @property string|null $lon
+ * @property string|null $address
+ * @property string|null $country
+ * @property string|null $city
+ * @property string|null $state
+ * @property string $start_date
+ * @property string $end_date
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Hackathon whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Hackathon whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Hackathon whereCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Hackathon whereEndDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Hackathon whereHeaderImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Hackathon whereLat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Hackathon whereLon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Hackathon whereStartDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Hackathon whereState($value)
  */
 class Hackathon extends Model
 {
