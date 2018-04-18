@@ -74,7 +74,7 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function conference()
+    public function conferences()
     {
         return $this->hasMany(Conference::class, 'user_id', 'id');
     }

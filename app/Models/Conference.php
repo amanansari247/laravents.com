@@ -80,7 +80,7 @@ class Conference extends Model
             ->saveSlugsTo('slug');
     }
 
-    protected $with = [
+    protected $appends = [
         'user'
     ];
 
@@ -111,5 +111,12 @@ class Conference extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function getUserAttribute()
+    {
+        $user = User::whereId($this->user_id)->first();
+
+        return $user;
     }
 }

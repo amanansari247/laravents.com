@@ -27,6 +27,11 @@ Vue.component('passport-personal-access-tokens', require('./components/passport/
 Vue.component('nav-search', require('./components/NavSearch'));
 
 /**
+ * Dashboard
+ */
+Vue.component('dashboard', require('./components/Dashboard'));
+
+/**
  * Misc
  */
 Vue.component('random-qoute', require('./components/RandomQuote'));
@@ -72,7 +77,7 @@ Vue.config.productionTip = false;
 import * as VueGoogleMaps from 'vue2-google-maps';
 Vue.use(VueGoogleMaps, {
     load: {
-        key: 'AIzaSyCXYbU3h8Mf_SBsdTv4sUxQ_LprL05_Ruo',
+        key: 'AIzaSyCXYbU3h8Mf_SBsdTv4sUxQ_LprL05_Ruo', // Please use your own key
     }
 });
 

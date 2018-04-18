@@ -82,7 +82,7 @@ class WelcomeNotification extends Notification implements ShouldQueue
         return new BroadcastMessage([
             'title' => 'Welcome to ' . config('app.name') . '!',
             'from_user_name' => (new \App\Models\User)->first()->name,
-            'from_user_gravatar' => (new \App\Models\User)->first()->getGravatar()
+            'from_user_gravatar' => (new \App\Models\User)->first()->gravatar
         ]);
     }
 }

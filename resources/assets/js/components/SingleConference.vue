@@ -22,11 +22,6 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Information</h3>
-                            <!--<div class="card-options">-->
-                                <!--<a v-bind:href="'/c/' + item.slug + '/edit'" data-toggle="tooltip" title="" data-original-title="Edit">-->
-                                    <!--<i class="far fa-edit"></i>-->
-                                <!--</a>-->
-                            <!--</div>-->
                         </div>
 
                         <div class="card-map card-map-placeholder">
@@ -154,7 +149,7 @@
 
             moment: function () {
                 return moment();
-            },
+            }
         },
 
         filters: {

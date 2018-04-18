@@ -31,6 +31,11 @@
 
                                 <div class="dropdown-divider"></div>
                             @endif
+
+                            <a class="dropdown-item" href="{{ url('/home') }}">
+                                <i class="dropdown-icon fe fe-home"></i> Dashboard
+                            </a>
+
                             <a class="dropdown-item" href="{{ url('/account') }}">
                                 <i class="dropdown-icon fe fe-user"></i> Profile
                             </a>
