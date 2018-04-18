@@ -4,26 +4,28 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
-
-    <!-- COMMON TAGS -->
-    <meta charset="utf-8">
-    <title>laravents.com</title>
+    
     <!-- Search Engine -->
     <meta name="description" content="Join laravel related events around the world!">
+    <meta name="image" content="https://laravents.com/logo_cube.png">
     <!-- Schema.org for Google -->
     <meta itemprop="name" content="laravents.com">
     <meta itemprop="description" content="Join laravel related events around the world!">
+    <meta itemprop="image" content="https://laravents.com/logo_cube.png">
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="laravents.com">
     <meta name="twitter:description" content="Join laravel related events around the world!">
     <meta name="twitter:site" content="@laraventscom">
     <meta name="twitter:creator" content="@fwartner">
+    <meta name="twitter:image:src" content="https://laravents.com/card.png">
     <!-- Open Graph general (Facebook, Pinterest & Google+) -->
     <meta name="og:title" content="laravents.com">
     <meta name="og:description" content="Join laravel related events around the world!">
+    <meta name="og:image" content="https://laravents.com/card.png">
     <meta name="og:url" content="https://laravents.com">
     <meta name="og:site_name" content="laravents.com">
+    <meta name="og:locale" content="en_US">
     <meta name="fb:admins" content="100003277138314">
     <meta name="og:type" content="website">
 
