@@ -30,17 +30,7 @@
                         </div>
 
                         <div class="card-map card-map-placeholder">
-                            <gmap-map
-                                    :center="{lat: Number(item.lat), lng: Number(item.lon)}"
-                                    :zoom="15"
-                                    :draggable="false"
-                                    map-type-id="terrain"
-                                    style="width: 374px; height: 240px"
-                            >
-                                <gmap-marker
-                                        :position="{lat: Number(item.lat), lng: Number(item.lon)}"
-                                ></gmap-marker>
-                            </gmap-map>
+                            <img v-bind:src="item.header_image" v-bind:alt="item.title" class="img">
                         </div>
 
                         <div class="card-body">
