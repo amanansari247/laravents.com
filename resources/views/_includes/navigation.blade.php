@@ -18,12 +18,19 @@
                             <span class="ml-2 d-none d-lg-block">
                                 <span class="text-default">{{ Auth::user()->name }}</span>
                               @if(Auth::user()->is_admin)
-                                        <small class="text-muted d-block mt-1">Administrator</small>
+                                  <small class="text-muted d-block mt-1">Administrator</small>
                               @endif
                             </span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" x-placement="bottom-end" style="position: absolute; transform: translate3d(136px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            @if(Auth::user()->is_admin)
+                                <a class="dropdown-item" href="{{ url('/horizon') }}">
+                                   Queue Management
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+                            @endif
                             <a class="dropdown-item" href="{{ url('/account') }}">
                                 <i class="dropdown-icon fe fe-user"></i> Profile
                             </a>
@@ -33,6 +40,7 @@
                             </a>
 
                             <div class="dropdown-divider"></div>
+
                             <a class="dropdown-item" href="https://twitter.com/laraventscom">
                                 <i class="dropdown-icon fe fe-help-circle"></i> Need help?
                             </a>

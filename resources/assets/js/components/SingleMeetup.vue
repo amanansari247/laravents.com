@@ -58,7 +58,14 @@
                                 <div class="col-6">
                                     <div class="h6">Website</div>
                                     <p>
-                                        <a v-bind:href="item.website">{{ item.website }}</a>
+                                        <a v-bind:href="item.website">Website</a>
+                                    </p>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="h6">Meetup Site</div>
+                                    <p>
+                                        <a v-bind:href="item.meetup_url">Meetup.com</a>
                                     </p>
                                 </div>
                             </div>
