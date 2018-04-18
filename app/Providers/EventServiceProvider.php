@@ -13,10 +13,7 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Illuminate\Auth\Events\Registered' => [
-            'App\Listeners\Users\SendWelcomeNotification',
-        ],
-
+        //
     ];
 
     /**
