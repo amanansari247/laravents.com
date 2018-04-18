@@ -8,6 +8,7 @@ use App\Http\Resources\ConferenceResource;
 use App\Models\Conference;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -22,7 +23,7 @@ class ConferenceController extends Controller
     public function index(Request $request)
     {
         $perPage = $request->query('perPage');
-        $conferences = (new Conference)->orderByDesc('created_at')->paginate($perPage);
+        $conferences = (new Conference)->whereIsApproved(true)->orderByDesc('created_at')->paginate($perPage);
 
         return ConferenceResource::collection($conferences);
     }
@@ -36,7 +37,7 @@ class ConferenceController extends Controller
     public function store(CreateRequest $request)
     {
         $conference = Conference::create([
-            'user_id' => 1,
+            'user_id' => $request->get('user_id'),
             'title' => $request->get('title'),
             'website' => $request->get('website'),
             'ticket_url' => $request->get('ticket_url'),
@@ -114,7 +115,7 @@ class ConferenceController extends Controller
 
             $img = Image::make('storage/' . $file_name);
 
-            return url('/') . 'storage/' . $file_name;
+            return url('/') . '/storage/' . $file_name;
         }
     }
 }

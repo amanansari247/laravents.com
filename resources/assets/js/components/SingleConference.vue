@@ -62,7 +62,7 @@
                                     </p>
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-6" v-if="item.ticket_url">
                                     <div class="h6">Tickets</div>
                                     <p>
                                         <a v-bind:href="item.ticket_url">Buy Tickets</a>

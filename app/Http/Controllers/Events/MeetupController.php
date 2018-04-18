@@ -42,12 +42,12 @@ class MeetupController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $meetup = Meetup::findOrFail($id);
+        $meetup = Meetup::whereSlug($slug)->first();
 
         return view('meetups.show', compact('meetup'));
     }

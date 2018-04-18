@@ -53,7 +53,7 @@ Vue.component('create-hackathon', require('./components/CreateHackathon'));
  */
 Vue.component('meetup-list', require('./components/Meetups'));
 Vue.component('create-meetup', require('./components/CreateMeetup'));
-// Vue.component('single-meetup', require('./components/SingleMeetup'));
+Vue.component('single-meetup', require('./components/SingleMeetup'));
 
 /**
  * Conferences

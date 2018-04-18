@@ -7,6 +7,7 @@ use App\Http\Resources\HackathonResource;
 use App\Models\Hackathon;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -21,7 +22,7 @@ class HackathonController extends Controller
     public function index(Request $request)
     {
         $perPage = $request->query('perPage');
-        $hackathons = (new Hackathon)->orderByDesc('created_at')->paginate($perPage);
+        $hackathons = (new Hackathon)->whereIsApproved(true)->orderByDesc('created_at')->paginate($perPage);
 
         return HackathonResource::collection($hackathons);
     }
@@ -35,7 +36,7 @@ class HackathonController extends Controller
     public function store(Request $request)
     {
         $hackathon = Hackathon::create([
-            'user_id' => $request->user()->id,
+            'user_id' => $request->get('user_id'),
             'title' => $request->get('title'),
             'website' => $request->get('website'),
             'description' => $request->get('description'),
@@ -112,7 +113,7 @@ class HackathonController extends Controller
 
             $img = Image::make('storage/' . $file_name);
 
-            return url('/') . 'storage/' . $file_name;
+            return url('/') . '/storage/' . $file_name;
         }
     }
 }

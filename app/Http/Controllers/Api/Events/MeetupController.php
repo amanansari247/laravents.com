@@ -7,6 +7,7 @@ use App\Http\Resources\MeetupResource;
 use App\Models\Meetup;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -21,7 +22,7 @@ class MeetupController extends Controller
     public function index(Request $request)
     {
         $perPage = $request->query('perPage');
-        $meetups = (new Meetup)->orderByDesc('created_at')->paginate($perPage);
+        $meetups = (new Meetup)->whereIsApproved(true)->orderByDesc('created_at')->paginate($perPage);
 
         return MeetupResource::collection($meetups);
     }
@@ -35,7 +36,7 @@ class MeetupController extends Controller
     public function store(Request $request)
     {
         $meetup = Meetup::create([
-            'user_id' => $request->user()->id,
+            'user_id' => $request->get('user_id'),
             'title' => $request->get('title'),
             'website' => $request->get('website'),
             'meetup_url' => $request->get('meetup_url'),
@@ -113,7 +114,7 @@ class MeetupController extends Controller
 
             $img = Image::make('storage/' . $file_name);
 
-            return url('/') . 'storage/' . $file_name;
+            return url('/') . '/storage/' . $file_name;
         }
     }
 }

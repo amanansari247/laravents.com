@@ -61,13 +61,6 @@
                                         <a v-bind:href="item.website">{{ item.website }}</a>
                                     </p>
                                 </div>
-
-                                <div class="col-6">
-                                    <div class="h6">Tickets</div>
-                                    <p>
-                                        <a v-bind:href="item.ticket_url">Buy Tickets</a>
-                                    </p>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -139,6 +132,16 @@
                     .catch(function (error) {
                         console.log(error);
                     });
+            }
+        },
+
+        filters: {
+            momentDate: function (date) {
+                return moment(date).format('DD.MM.YYYY');
+            },
+
+            momentTime: function (date) {
+                return moment(date).format('HH:MM');
             }
         }
     }
