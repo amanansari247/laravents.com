@@ -51,6 +51,10 @@ class User extends Authenticatable
         'is_admin' => 'boolean'
     ];
 
+    protected $appends = [
+        'gravatar'
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -83,7 +87,7 @@ class User extends Authenticatable
      * @param array $atts
      * @return string
      */
-    public function getGravatar($s = 80, $d = 'mm', $r = 'g', $img = false, $atts = [])
+    public function getGravatarAttribute($s = 80, $d = 'mm', $r = 'g', $img = false, $atts = [])
     {
         $url = 'https://www.gravatar.com/avatar/';
         $url .= md5(strtolower(trim($this->email)));

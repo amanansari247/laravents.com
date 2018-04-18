@@ -29,12 +29,12 @@
 
                         <div class="card-body">
                             <div class="media mb-5">
-                                <img class="d-flex mr-5 rounded" v-bind:src="item.header_image" v-bind:alt="item.title" style="max-height: 64px; max-width: 64px;">
+                                <img class="d-flex mr-5 rounded" v-bind:src="item.user.gravatar" v-bind:alt="item.title" style="max-height: 64px; max-width: 64px;">
                                 <div class="media-body">
                                     <h5>{{ item.title }}</h5>
 
                                     <address class="text-muted small">
-                                        {{ item.address }}
+                                        <strong>Submitted by</strong> <br> {{ item.user.name }}
                                     </address>
                                 </div>
                             </div>

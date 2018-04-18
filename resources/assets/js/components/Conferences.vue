@@ -5,8 +5,11 @@
                 <div class="col-4" v-for="item in items">
                     <div class="card">
                         <div class="card-map card-map-placeholder">
-                            <img v-bind:src="item.header_image" v-bind:alt="item.title" class="img">
+                            <a v-bind:href="'/c/' + item.slug">
+                                <img v-bind:src="item.header_image" v-bind:alt="item.title" class="img">
+                            </a>
                         </div>
+
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a v-bind:href="'/c/' + item.slug">{{ item.title }}</a>

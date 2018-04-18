@@ -80,6 +80,10 @@ class Conference extends Model
             ->saveSlugsTo('slug');
     }
 
+    protected $with = [
+        'user'
+    ];
+
     /**
      * @var array
      */

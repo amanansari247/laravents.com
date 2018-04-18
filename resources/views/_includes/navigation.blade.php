@@ -14,7 +14,7 @@
                     <notification-widget></notification-widget>
                     <div class="dropdown">
                         <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown" aria-expanded="false">
-                            <img class="avatar" src="{{ Auth::user()->getGravatar() }}" alt="{{ Auth::user()->name }}">
+                            <img class="avatar" src="{{ Auth::user()->gravatar }}" alt="{{ Auth::user()->name }}">
                             <span class="ml-2 d-none d-lg-block">
                                 <span class="text-default">{{ Auth::user()->name }}</span>
                               @if(Auth::user()->is_admin)

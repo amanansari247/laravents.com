@@ -80,6 +80,10 @@ class Meetup extends Model
             ->saveSlugsTo('slug');
     }
 
+    protected $with = [
+        'user'
+    ];
+
     /**
      * @var array
      */
