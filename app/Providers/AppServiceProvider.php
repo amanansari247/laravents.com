@@ -2,7 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\Conference;
+use App\Models\Hackathon;
+use App\Models\Meetup;
 use App\Models\User;
+use App\Observers\ConferenceObserver;
+use App\Observers\HackathonObserver;
+use App\Observers\MeetupObserver;
 use App\Observers\UserObserver;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
@@ -17,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         User::observe(UserObserver::class);
+        
+        Meetup::observe(MeetupObserver::class);
+        Hackathon::observe(HackathonObserver::class);
+        Conference::observe(ConferenceObserver::class);
     }
 
     /**

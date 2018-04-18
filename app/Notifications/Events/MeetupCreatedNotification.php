@@ -44,7 +44,9 @@ class MeetupCreatedNotification extends Notification implements ShouldQueue
      */
     public function toTwitter()
     {
-        return (new TwitterStatusUpdate('Laravel notifications are awesome!'));
+        $item = $this->meetup;
+        $message = "New Meetup: $item->name \n" . url('/m/' . $item->slug) ;
+        return (new TwitterStatusUpdate($message));
     }
 
     /**

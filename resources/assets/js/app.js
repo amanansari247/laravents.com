@@ -72,7 +72,7 @@ Vue.config.productionTip = false;
 import * as VueGoogleMaps from 'vue2-google-maps';
 Vue.use(VueGoogleMaps, {
     load: {
-        key: window.Laravents.gmaps_key,
+        key: 'AIzaSyCXYbU3h8Mf_SBsdTv4sUxQ_LprL05_Ruo',
     }
 });
 

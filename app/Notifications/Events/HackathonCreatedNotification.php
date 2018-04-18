@@ -44,7 +44,9 @@ class HackathonCreatedNotification extends Notification implements ShouldQueue
      */
     public function toTwitter()
     {
-        return (new TwitterStatusUpdate('Laravel notifications are awesome!'));
+        $item = $this->hackathon;
+        $message = "New Hackathon: $item->name \n" . url('/h/' . $item->slug) ;
+        return (new TwitterStatusUpdate($message));
     }
 
     /**
