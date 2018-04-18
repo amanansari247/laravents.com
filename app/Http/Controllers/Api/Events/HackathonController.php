@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Events;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Hackathons\CreateRequest;
 use App\Http\Resources\HackathonResource;
 use App\Models\Hackathon;
 use Carbon\Carbon;
@@ -30,10 +31,10 @@ class HackathonController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param CreateRequest $request
      * @return HackathonResource|\Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         $hackathon = Hackathon::create([
             'user_id' => $request->get('user_id'),

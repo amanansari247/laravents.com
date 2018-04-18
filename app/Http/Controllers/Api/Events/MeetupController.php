@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Events;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Meetups\CreateRequest;
 use App\Http\Resources\MeetupResource;
 use App\Models\Meetup;
 use Carbon\Carbon;
@@ -30,10 +31,10 @@ class MeetupController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param CreateRequest $request
      * @return MeetupResource|\Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         $meetup = Meetup::create([
             'user_id' => $request->get('user_id'),
