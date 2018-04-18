@@ -109,7 +109,7 @@
     </div>
 
     <script type="text/javascript">
-        var gaProperty = window.Laravents.ga_key;
+        var gaProperty = 'UA-116906314-2';
         var disableStr = 'ga-disable-' + gaProperty; if (document.cookie.indexOf(disableStr + '=true') > -1) {
             window[disableStr] = true;
         }
