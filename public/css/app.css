@@ -30751,6 +30751,11 @@ svg {
   content: "\EA06";
 }
 
+body {
+  height: 100%;
+  padding-bottom: 10px;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -30762,7 +30767,7 @@ svg {
 }
 
 .footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
 }

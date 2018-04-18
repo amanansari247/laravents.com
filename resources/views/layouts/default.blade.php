@@ -73,13 +73,15 @@
     </div>
 
     @if(env('APP_ENV') == 'production')
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116906314-2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+        <script type="text/javascript">
+            var gaProperty = {!! env('GA_KEY') !!};
+            var disableStr = 'ga-disable-' + gaProperty; if (document.cookie.indexOf(disableStr + '=true') > -1) {
+                window[disableStr] = true;
+            }
 
-            gtag('config', '{!! env('GA_KEY') !!}');
+            function gaOptout() {
+                document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/'; window[disableStr] = true; alert('Das Tracking durch Google Analytics wurde in Ihrem Browser für diese Website deaktiviert.');
+            }
         </script>
     @endif
 
