@@ -108,18 +108,16 @@
         @endif
     </div>
 
-    @if(env('APP_ENV') == 'production')
-        <script type="text/javascript">
-            var gaProperty = {!! env('GA_KEY') !!};
-            var disableStr = 'ga-disable-' + gaProperty; if (document.cookie.indexOf(disableStr + '=true') > -1) {
-                window[disableStr] = true;
-            }
+    <script type="text/javascript">
+        var gaProperty = {!! env('GA_KEY') !!};
+        var disableStr = 'ga-disable-' + gaProperty; if (document.cookie.indexOf(disableStr + '=true') > -1) {
+            window[disableStr] = true;
+        }
 
-            function gaOptout() {
-                document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/'; window[disableStr] = true; alert('Das Tracking durch Google Analytics wurde in Ihrem Browser für diese Website deaktiviert.');
-            }
-        </script>
-    @endif
+        function gaOptout() {
+            document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/'; window[disableStr] = true; alert('Das Tracking durch Google Analytics wurde in Ihrem Browser für diese Website deaktiviert.');
+        }
+    </script>
 
     @guest
         <script>
