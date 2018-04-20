@@ -14,7 +14,9 @@ class ConferenceObserver
      */
     public function created(Conference $item)
     {
-        $item->notify(new ConferenceCreatedNotification($item));
+        if ($item->is_approved) {
+            $item->notify(new ConferenceCreatedNotification($item));
+        }
     }
 
     /**

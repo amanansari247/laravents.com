@@ -14,7 +14,9 @@ class HackathonObserver
      */
     public function created(Hackathon $item)
     {
-        $item->notify(new HackathonCreatedNotification($item));
+        if ($item->is_approved) {
+            $item->notify(new HackathonCreatedNotification($item));
+        }
     }
 
     /**

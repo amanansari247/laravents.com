@@ -14,7 +14,9 @@ class MeetupObserver
      */
     public function created(Meetup $item)
     {
-        $item->notify(new MeetupCreatedNotification($item));
+        if ($item->is_approved) {
+            $item->notify(new MeetupCreatedNotification($item));
+        }
     }
 
     /**
