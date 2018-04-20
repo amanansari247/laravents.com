@@ -55,12 +55,14 @@ class ConferenceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Conference  $conference
+     * @param $slug
      * @return \Illuminate\Http\Response
      */
-    public function edit(Conference $conference)
+    public function edit($slug)
     {
-        //
+        $conference = Conference::whereSlug($slug)->first();
+
+        return view('conferences.edit', compact('conference'));
     }
 
     /**

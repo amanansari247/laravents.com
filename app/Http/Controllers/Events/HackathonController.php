@@ -55,12 +55,14 @@ class HackathonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param $slug
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $hackathon = Hackathon::where($slug)->first();
+
+        return view('hackathons.edit', compact('hackathon'));
     }
 
     /**

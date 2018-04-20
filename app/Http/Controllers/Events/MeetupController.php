@@ -55,12 +55,14 @@ class MeetupController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param $slug
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $meetup = Meetup::whereSlug($slug)->first();
+
+        return view('meetups.edit', compact('meetup'));
     }
 
     /**

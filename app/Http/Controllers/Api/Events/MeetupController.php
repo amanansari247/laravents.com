@@ -83,11 +83,22 @@ class MeetupController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Meetup  $meetup
-     * @return \Illuminate\Http\Response
+     * @return MeetupResource|\Illuminate\Http\Response
      */
     public function update(Request $request, Meetup $meetup)
     {
-        //
+        $meetup->update([
+            'user_id' => $request->get('user_id'),
+            'title' => $request->get('title'),
+            'website' => $request->get('website'),
+            'meetup_url' => $request->get('meetup_url'),
+            'description' => $request->get('description'),
+        ]);
+
+        if ($request->has('live_stream')) {
+        }
+
+        return MeetupResource::make($meetup);
     }
 
     /**

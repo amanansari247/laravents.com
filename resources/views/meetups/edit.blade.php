@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('page_title')
-    Conferences
+    Edit "{{ $meetup->title }}"
 @endsection
 
 @push('styles')
@@ -15,11 +15,7 @@
 @section('content')
     <main class="py-4">
         <div class="container">
-            <div class="page-header">
-                <h1>Conferences</h1>
-            </div>
-
-            <conference-list :per_page="12" :with_pagination="true"></conference-list>
+            <edit-meetup :meetupid="{{ $meetup->id }}"></edit-meetup>
         </div>
     </main>
 @endsection

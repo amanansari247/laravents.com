@@ -82,11 +82,21 @@ class HackathonController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Hackathon  $hackathon
-     * @return \Illuminate\Http\Response
+     * @return HackathonResource|\Illuminate\Http\Response
      */
     public function update(Request $request, Hackathon $hackathon)
     {
-        //
+        $hackathon->update([
+            'user_id' => $request->get('user_id'),
+            'title' => $request->get('title'),
+            'website' => $request->get('website'),
+            'description' => $request->get('description'),
+        ]);
+
+        if ($request->has('live_stream')) {
+        }
+
+        return HackathonResource::make($hackathon);
     }
 
     /**

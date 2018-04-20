@@ -81,13 +81,24 @@ class ConferenceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Conference  $conference
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Conference $conference
+     * @return ConferenceResource
      */
     public function update(Request $request, Conference $conference)
     {
-        //
+        $conference->update([
+            'user_id' => $request->get('user_id'),
+            'title' => $request->get('title'),
+            'website' => $request->get('website'),
+            'ticket_url' => $request->get('ticket_url'),
+            'description' => $request->get('description'),
+        ]);
+
+        if ($request->has('live_stream')) {
+        }
+
+        return ConferenceResource::make($conference);
     }
 
     /**

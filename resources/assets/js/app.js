@@ -51,13 +51,15 @@ Vue.component('speaker-list', require('./components/SpeakerList'));
  */
 Vue.component('hackathon-list', require('./components/Hackathons'));
 Vue.component('create-hackathon', require('./components/CreateHackathon'));
-// Vue.component('single-hackathon', require('./components/SingleHackathon'));
+Vue.component('edit-hackathon', require('./components/EditHackathon'));
+Vue.component('single-hackathon', require('./components/SingleHackathon'));
 
 /**
  * Meetups
  */
 Vue.component('meetup-list', require('./components/Meetups'));
 Vue.component('create-meetup', require('./components/CreateMeetup'));
+Vue.component('edit-meetup', require('./components/EditMeetup'));
 Vue.component('single-meetup', require('./components/SingleMeetup'));
 
 /**
@@ -65,6 +67,7 @@ Vue.component('single-meetup', require('./components/SingleMeetup'));
  */
 Vue.component('conference-list', require('./components/Conferences'));
 Vue.component('create-conference', require('./components/CreateConference'));
+Vue.component('edit-conference', require('./components/EditConference'));
 Vue.component('single-conference', require('./components/SingleConference'));
 
 /**

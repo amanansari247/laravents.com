@@ -31,6 +31,7 @@
         "npm": "^5.8.0",
         "places.js": "^1.6.0",
         "pusher-js": "^4.2.2",
+        "sweetalert2": "^7.19.0",
         "vue-instantsearch": "^1.5.2",
         "vue-markdown": "^2.2.4",
         "vue-picture-input": "^2.1.5",

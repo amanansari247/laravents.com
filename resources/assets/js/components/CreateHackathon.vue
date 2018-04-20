@@ -130,7 +130,8 @@
                     start_time: null,
                     end_date: null,
                     end_time: null,
-                    live_stream: false
+                    live_stream: false,
+                    user_id: window.Laravents.currentUser.id
                 }
             }
         },

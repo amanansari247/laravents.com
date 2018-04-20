@@ -8150,6 +8150,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+sweetalert2@^7.19.0:
+  version "7.19.0"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.19.0.tgz#945e0d78582393c9b62dd8511c30d6268cdb2690"
+
 tapable@^0.2.7:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.8.tgz#99372a5c999bf2df160afc0d74bed4f47948cd22"

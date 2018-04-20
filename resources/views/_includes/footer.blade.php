@@ -51,6 +51,9 @@
                         </ul>
                     </div>
                     <div class="col-auto">
+                        <a href="https://paypal.me/florianwartner" class="btn btn-outline-primary btn-sm"><i class="fab fa-paypal"></i> Donate</a>
+                    </div>
+                    <div class="col-auto">
                         <a href="https://github.com/laravents/laravents.com" class="btn btn-outline-primary btn-sm">Source code</a>
                     </div>
                 </div>

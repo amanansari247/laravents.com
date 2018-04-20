@@ -2,6 +2,8 @@
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
 
+const Swal = require('sweetalert2');
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -23,6 +25,20 @@ try {
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+window.axios.interceptors.request.use(function (config) {
+    return config;
+}, function (error) {
+    Swal('Oops...', 'Something went wrong!', 'error');
+    return Promise.reject(error);
+});
+
+window.axios.interceptors.response.use(function (response) {
+    return response;
+}, function (error) {
+    Swal('Oops...', 'Something went wrong!', 'error');
+    return Promise.reject(error);
+});
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -60,3 +76,4 @@ window.places = require('places.js');
 window.autocomplete = require('autocomplete.js');
 
 window.moment = require('moment');
+window.swal = Swal;
