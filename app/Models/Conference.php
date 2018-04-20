@@ -113,6 +113,9 @@ class Conference extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+    /**
+     * @return Model|null|object|static
+     */
     public function getUserAttribute()
     {
         $user = User::whereId($this->user_id)->first();

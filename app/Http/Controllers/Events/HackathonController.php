@@ -47,7 +47,7 @@ class HackathonController extends Controller
      */
     public function show($slug)
     {
-        $hackathon = Hackathon::where($slug)->first();
+        $hackathon = Hackathon::whereSlug($slug)->first();
 
         return view('hackathons.show', compact('hackathon'));
     }
@@ -60,7 +60,7 @@ class HackathonController extends Controller
      */
     public function edit($slug)
     {
-        $hackathon = Hackathon::where($slug)->first();
+        $hackathon = Hackathon::whereSlug($slug)->first();
 
         return view('hackathons.edit', compact('hackathon'));
     }

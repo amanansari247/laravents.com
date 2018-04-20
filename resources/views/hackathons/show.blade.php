@@ -13,7 +13,7 @@
 @endpush
 
 @section('content')
-    <single-hacakathon :hackathonid="{{ $hackathon->id }}"></single-hacakathon>
+    <single-hackathon :hackathonid="{{ $hackathon->id }}"></single-hackathon>
 @endsection
 
 @push('footer_scripts')

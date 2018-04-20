@@ -6,7 +6,6 @@
  */
 require('./bootstrap');
 window.Vue = require('vue');
-require('./vue_libraries');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -76,6 +75,10 @@ Vue.component('single-conference', require('./components/SingleConference'));
  * @type {boolean}
  */
 Vue.config.productionTip = false;
+
+import AlgoliaComponents from 'vue-instantsearch';
+Vue.use(AlgoliaComponents);
+
 
 import * as VueGoogleMaps from 'vue2-google-maps';
 Vue.use(VueGoogleMaps, {

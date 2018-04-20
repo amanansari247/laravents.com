@@ -80,7 +80,7 @@ class Meetup extends Model
             ->saveSlugsTo('slug');
     }
 
-    protected $with = [
+    protected $appends = [
         'user'
     ];
 
@@ -111,5 +111,15 @@ class Meetup extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    /**
+     * @return Model|null|object|static
+     */
+    public function getUserAttribute()
+    {
+        $user = User::whereId($this->user_id)->first();
+
+        return $user;
     }
 }
