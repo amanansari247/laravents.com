@@ -23,6 +23,7 @@ class MeetupController extends Controller
     {
         $perPage = $request->query('perPage');
         $meetups = (new Meetup)
+            ->whereIsApproved(true)
             ->orderByDesc('created_at')
             ->paginate($perPage);
 

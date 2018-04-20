@@ -23,6 +23,7 @@ class HackathonController extends Controller
     {
         $perPage = $request->query('perPage');
         $hackathons = (new Hackathon)
+            ->whereIsApproved(true)
             ->orderByDesc('created_at')
             ->paginate($perPage);
 

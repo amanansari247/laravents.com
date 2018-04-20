@@ -23,6 +23,7 @@ class ConferenceController extends Controller
     {
         $perPage = $request->query('perPage');
         $conferences = (new Conference)
+            ->whereIsApproved(true)
             ->orderByDesc('created_at')
             ->paginate($perPage);
 
