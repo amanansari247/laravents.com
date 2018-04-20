@@ -31,3 +31,5 @@ Route::group(['prefix' => 'account', 'middleware' => 'auth'], function () {
 
 Route::view('/imprint', 'static.imprint');
 Route::view('/privacy', 'static.privacy');
+
+Route::feeds();

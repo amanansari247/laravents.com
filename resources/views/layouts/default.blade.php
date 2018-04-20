@@ -35,6 +35,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('page_title') - {{ config('app.name') }}</title>
+    @include('feed::links')
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">

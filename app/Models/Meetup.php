@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Scout\Searchable;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -60,8 +62,9 @@ use Spatie\Sluggable\SlugOptions;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereLon($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereStartDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Meetup whereState($value)
+ * @property-read \Illuminate\Contracts\Routing\UrlGenerator|string $link
  */
-class Meetup extends Model
+class Meetup extends Model implements Feedable
 {
     use Searchable, SoftDeletes, Notifiable, HasSlug;
 
@@ -80,6 +83,39 @@ class Meetup extends Model
             ->saveSlugsTo('slug');
     }
 
+    /**
+     * @return $this|array|FeedItem
+     */
+    public function toFeedItem()
+    {
+        return FeedItem::create()
+            ->id($this->id)
+            ->title($this->title)
+            ->summary($this->description)
+            ->updated($this->updated_at)
+            ->link($this->link)
+            ->author($this->user->name);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public static function getFeedItems()
+    {
+        return static::all();
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
+     */
+    public function getLinkAttribute()
+    {
+        return url('/m/' . $this->slug);
+    }
+
+    /**
+     * @var array
+     */
     protected $appends = [
         'user'
     ];
