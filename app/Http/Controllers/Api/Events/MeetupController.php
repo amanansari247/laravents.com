@@ -8,7 +8,6 @@ use App\Http\Resources\MeetupResource;
 use App\Models\Meetup;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
