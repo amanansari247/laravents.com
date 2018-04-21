@@ -17,9 +17,7 @@
 
         methods: {
             setupSearch: function() {
-                let appId = window.Laravents.algoliaAppID;
-                let searchOnlyKey = window.Laravents.algoliaSearchOnlyKey;
-                let client = window.algoliasearch(appId, searchOnlyKey);
+                let client = window.algoliasearch('HDJY3LZL6A', '0d730da86389836ed2e52ea5decad2d9');
                 let conferences = client.initIndex('conferences');
                 let meetups = client.initIndex('meetups');
                 let hackathons = client.initIndex('hackathons');
