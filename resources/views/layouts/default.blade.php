@@ -13,21 +13,21 @@
     <meta itemprop="description" content="Join laravel related events around the world!">
     <meta itemprop="image" content="https://laravents.com/logo_cube.png">
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="laravents.com">
     <meta name="twitter:description" content="Join laravel related events around the world!">
     <meta name="twitter:site" content="@laraventscom">
     <meta name="twitter:creator" content="@fwartner">
-    <meta name="twitter:image:src" content="https://laravents.com/card.png">
+    <meta name="twitter:image" content="https://laravents.com/card.png">
     <!-- Open Graph general (Facebook, Pinterest & Google+) -->
-    <meta name="og:title" content="laravents.com">
-    <meta name="og:description" content="Join laravel related events around the world!">
-    <meta name="og:image" content="https://laravents.com/card.png">
-    <meta name="og:url" content="https://laravents.com">
-    <meta name="og:site_name" content="laravents.com">
-    <meta name="og:locale" content="en_US">
-    <meta name="fb:admins" content="100003277138314">
-    <meta name="og:type" content="website">
+    <meta property="og:title" content="laravents.com">
+    <meta property="og:description" content="Join laravel related events around the world!">
+    <meta property="og:image" content="https://laravents.com/card.png">
+    <meta property="og:url" content="https://laravents.com">
+    <meta property="og:site_name" content="laravents.com">
+    <meta property="og:locale" content="en_US">
+    <meta property="fb:admins" content="100003277138314">
+    <meta property="og:type" content="website">
 
     <link rel="canonical" href="@yield('canonical', request()->url())" />
 
