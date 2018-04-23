@@ -5,21 +5,17 @@ namespace App\Observers;
 use App\Models\Meetup;
 use App\Models\User;
 use App\Notifications\Admin\NewMeetupCreatedNotification;
-use App\Notifications\Events\MeetupCreatedNotification;
 
 class MeetupObserver
 {
     /**
      * Listen to the User created event.
      *
+     * @param Meetup $item
      * @return void
      */
     public function created(Meetup $item)
     {
-        if ($item->is_approved) {
-            $item->notify(new MeetupCreatedNotification($item));
-        }
-
         // Notify Admins
         $admins = User::whereIsAdmin(true)->get();
         foreach ($admins as $admin) {
@@ -30,6 +26,7 @@ class MeetupObserver
     /**
      * Listen to the User deleting event.
      *
+     * @param Meetup $item
      * @return void
      */
     public function deleting(Meetup $item)

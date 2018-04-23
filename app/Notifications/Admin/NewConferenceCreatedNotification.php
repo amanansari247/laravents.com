@@ -4,9 +4,9 @@ namespace App\Notifications\Admin;
 
 use App\Models\Conference;
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
 class NewConferenceCreatedNotification extends Notification implements ShouldQueue
 {
@@ -24,7 +24,6 @@ class NewConferenceCreatedNotification extends Notification implements ShouldQue
      */
     public function __construct(Conference $conference)
     {
-
         $this->conference = $conference;
     }
 

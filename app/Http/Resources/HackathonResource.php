@@ -30,7 +30,8 @@ class HackathonResource extends JsonResource
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
             'user_id' => $this->user_id,
-            'user' => UserResource::make($this->user)
+            'user' => UserResource::make($this->user),
+            'is_approved' => $this->is_approved
         ];
     }
 }

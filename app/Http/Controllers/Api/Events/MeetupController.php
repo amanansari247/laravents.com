@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Meetups\CreateRequest;
 use App\Http\Resources\MeetupResource;
 use App\Models\Meetup;
+use App\Notifications\Events\MeetupCreatedNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -130,5 +131,25 @@ class MeetupController extends Controller
 
             return url('/') . '/storage/' . $file_name;
         }
+    }
+
+    /**
+     * @param $id
+     * @return MeetupController|MeetupResource
+     */
+    public function togglePublished($id)
+    {
+        $item = Meetup::find($id);
+        if (! $item->is_approved) {
+            $item->update([
+                'is_approved' => true
+            ]);
+        }
+
+        if ($item->is_approved) {
+            $item->notify(new MeetupCreatedNotification($item));
+        }
+
+        return MeetupResource::make($item);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Conferences\CreateRequest;
 use App\Http\Resources\ConferenceResource;
 use App\Models\Conference;
+use App\Notifications\Events\ConferenceCreatedNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -130,5 +131,25 @@ class ConferenceController extends Controller
 
             return url('/') . '/storage/' . $file_name;
         }
+    }
+
+    /**
+     * @param $id
+     * @return ConferenceController|ConferenceResource
+     */
+    public function togglePublished($id)
+    {
+        $item = Conference::find($id);
+        if (! $item->is_approved) {
+            $item->update([
+                'is_approved' => true
+            ]);
+        }
+
+        if ($item->is_approved) {
+            $item->notify(new ConferenceCreatedNotification($item));
+        }
+
+        return ConferenceResource::make($item);
     }
 }

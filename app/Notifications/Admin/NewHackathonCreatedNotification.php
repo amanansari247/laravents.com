@@ -4,9 +4,9 @@ namespace App\Notifications\Admin;
 
 use App\Models\Hackathon;
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
 class NewHackathonCreatedNotification extends Notification implements ShouldQueue
 {

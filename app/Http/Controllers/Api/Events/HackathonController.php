@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Hackathons\CreateRequest;
 use App\Http\Resources\HackathonResource;
 use App\Models\Hackathon;
+use App\Notifications\Events\HackathonCreatedNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -128,5 +129,25 @@ class HackathonController extends Controller
 
             return url('/') . '/storage/' . $file_name;
         }
+    }
+
+    /**
+     * @param $id
+     * @return HackathonController|HackathonResource
+     */
+    public function togglePublished($id)
+    {
+        $item = Hackathon::find($id);
+        if (! $item->is_approved) {
+            $item->update([
+                'is_approved' => true
+            ]);
+        }
+
+        if ($item->is_approved) {
+            $item->notify(new HackathonCreatedNotification($item));
+        }
+
+        return HackathonResource::make($item);
     }
 }

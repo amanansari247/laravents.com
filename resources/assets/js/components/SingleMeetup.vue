@@ -96,6 +96,16 @@
                     <!--</div>-->
                     <!--</div>-->
 
+                    <div class="card" v-show="!item.is_approved">
+                        <div class="card-header">
+                            <h3 class="card-title">Admin Actions</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <button class="btn btn-outline-primary btn-sm ml-auto" v-on:click="publishItem">Approve Meetup</button>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="col-lg-8 col-md-6">
@@ -142,6 +152,21 @@
                     .then(function (response) {
                         self.item = response.data.data;
                     })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+
+            publishItem: function() {
+                let self= this;
+                this.item.is_approved = true;
+
+                axios.post('/api/meetups/' +  this.item.id + '/publish', this.item).then(function (response) {
+                    swal('Yay...', 'Your meetup is successfully published.', 'success');
+                    setTimeout(function() {
+                        window.location = `/m/${response.data.data.slug}`;
+                    }, 2000);
+                })
                     .catch(function (error) {
                         console.log(error);
                     });
