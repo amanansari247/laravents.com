@@ -96,7 +96,7 @@
                     <!--</div>-->
                     <!--</div>-->
 
-                    <div class="card" v-show="!item.is_approved">
+                    <div class="card" v-if="currentUser.is_admin" v-show="!item.is_approved">
                         <div class="card-header">
                             <h3 class="card-title">Admin Actions</h3>
                         </div>
@@ -136,7 +136,8 @@
 
         data() {
             return {
-                item: {}
+                item: {},
+                currentUser: window.Laravents.currentUser
             }
         },
 
@@ -161,15 +162,17 @@
                 let self= this;
                 this.item.is_approved = true;
 
-                axios.post('/api/meetups/' +  this.item.id + '/publish', this.item).then(function (response) {
-                    swal('Yay...', 'Your meetup is successfully published.', 'success');
-                    setTimeout(function() {
-                        window.location = `/m/${response.data.data.slug}`;
-                    }, 2000);
-                })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+                if (window.Laravents.currentUser.is_admin) {
+                    axios.post('/api/meetups/' +  this.item.id + '/publish', this.item).then(function (response) {
+                        swal('Yay...', 'Your meetup is successfully published.', 'success');
+                        setTimeout(function() {
+                            window.location = `/m/${response.data.data.slug}`;
+                        }, 2000);
+                    })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
             },
 
             moment: function () {
