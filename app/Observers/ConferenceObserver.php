@@ -3,6 +3,8 @@
 namespace App\Observers;
 
 use App\Models\Conference;
+use App\Models\User;
+use App\Notifications\Admin\NewConferenceCreatedNotification;
 use App\Notifications\Events\ConferenceCreatedNotification;
 
 class ConferenceObserver
@@ -16,6 +18,12 @@ class ConferenceObserver
     {
         if ($item->is_approved) {
             $item->notify(new ConferenceCreatedNotification($item));
+        }
+
+        // Notify Admins
+        $admins = User::whereIsAdmin(true)->get();
+        foreach ($admins as $admin) {
+            $admin->notify(new NewConferenceCreatedNotification($item));
         }
     }
 

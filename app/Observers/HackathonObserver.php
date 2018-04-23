@@ -3,6 +3,8 @@
 namespace App\Observers;
 
 use App\Models\Hackathon;
+use App\Models\User;
+use App\Notifications\Admin\NewHackathonCreatedNotification;
 use App\Notifications\Events\HackathonCreatedNotification;
 
 class HackathonObserver
@@ -16,6 +18,12 @@ class HackathonObserver
     {
         if ($item->is_approved) {
             $item->notify(new HackathonCreatedNotification($item));
+        }
+
+        // Notify Admins
+        $admins = User::whereIsAdmin(true)->get();
+        foreach ($admins as $admin) {
+            $admin->notify(new NewHackathonCreatedNotification($item));
         }
     }
 

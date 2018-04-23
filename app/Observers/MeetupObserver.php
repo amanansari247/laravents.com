@@ -3,6 +3,8 @@
 namespace App\Observers;
 
 use App\Models\Meetup;
+use App\Models\User;
+use App\Notifications\Admin\NewMeetupCreatedNotification;
 use App\Notifications\Events\MeetupCreatedNotification;
 
 class MeetupObserver
@@ -16,6 +18,12 @@ class MeetupObserver
     {
         if ($item->is_approved) {
             $item->notify(new MeetupCreatedNotification($item));
+        }
+
+        // Notify Admins
+        $admins = User::whereIsAdmin(true)->get();
+        foreach ($admins as $admin) {
+            $admin->notify(new NewMeetupCreatedNotification($item));
         }
     }
 
