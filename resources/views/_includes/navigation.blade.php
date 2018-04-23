@@ -8,7 +8,7 @@
                 @guest
                     <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                         <li><a class="nav-item" href="{{ env('APP_URL') . '/login' }}">{{ __('Login') }}</a></li>
-                        <li><a class="nav-item" href="{{ env('APP_URL') . '/login' }}">{{ __('Register') }}</a></li>
+                        <li><a class="nav-item" href="{{ env('APP_URL') . '/register' }}">{{ __('Register') }}</a></li>
                     </ul>
                 @else
                     <notification-widget></notification-widget>

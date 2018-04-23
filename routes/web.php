@@ -2,10 +2,12 @@
 
 Route::domain('tickets.laravents.test')->group(function () {
     Route::get('/', 'Tickets\TicketController@index');
+    Auth::routes();
 });
 
 Route::domain('tickets.laravents.com')->group(function () {
     Route::get('/', 'Tickets\TicketController@index');
+    Auth::routes();
 });
 
 Route::get('/', function () {
