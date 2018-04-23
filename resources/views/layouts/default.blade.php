@@ -8,6 +8,7 @@
     <!-- Search Engine -->
     <meta name="description" content="Join laravel related events around the world!">
     <meta name="image" content="https://laravents.com/logo_cube.png">
+    <meta name="keyword" content="laravel, events, event, conferences, hackathons, meetups">
     <!-- Schema.org for Google -->
     <meta itemprop="name" content="laravents.com">
     <meta itemprop="description" content="Join laravel related events around the world!">
