@@ -119,7 +119,7 @@
         gtag('config', 'UA-116906314-2');
     </script>
 
-    <script type="text/javascript">
+    <script>
         var gaProperty = 'UA-116906314-2';
         var disableStr = 'ga-disable-' + gaProperty; if (document.cookie.indexOf(disableStr + '=true') > -1) {
             window[disableStr] = true;
