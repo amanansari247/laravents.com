@@ -7,8 +7,8 @@ WIP
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravents.com, please send an e-mail to Florian Wartner at florian@laravents.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability with in Laravents.com, please send an e-mail to Florian Wartner at florian@laravents.com. All security vulnerabilities will be promptly addressed.
 
 ## License
 
-Laravents.com is free software distributed under the terms of the MIT license.
+Laravents.com is free and a very useful software distributed under the terms of the MIT license.
